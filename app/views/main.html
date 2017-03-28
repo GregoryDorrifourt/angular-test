@@ -1,23 +1,339 @@
-<div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#/">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
-</div>
 
-<div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
+<h2>Passer  à la fibre Bouygues Telecom</h2>
 
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
+<div class="container">
 
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
+    <form>
+        <!-- CONTRACT-->
+        <div class="container section-form">
+            <div class="title">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h3>Contrat</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="wrapper-form col-xs-12 col-sm-offset-2 col-sm-8">
+                    
+                    <div class="form-group row">
+                        <div class="col-xs-12">
+                            <label for="formGroupExampleInput" class="sr-only">Numéro de contrat</label>
+                            <input type="text" class="form-control" value="" placeholder="Numéro de contrat" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-xs-12">
+                            <label for="exampleSelect1" class="sr-only">Example select</label>
+                            <select class="form-control list-field">
+                                <option selected>-- Nom de la société --</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-xs-12">
+                            <label for="formGroupExampleInput" class="sr-only">Identifiant vendeur</label>
+                            <input type="text" class="form-control" placeholder="Identifiant vendeur" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-xs-12">
+                            <label for="example-date-input" class="sr-only">Date</label>
+                            <input type="text" class="form-control" value="" placeholder="Date de signature du contrat (JJ/MM/AAAA)" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- CORDINATES -->
+        <div class="container section-form">
+
+            <div class="title">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h3>Coordonnées</h3>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="wrapper-form col-xs-12 col-sm-offset-2 col-sm-8">
+                    
+                    <div class="form-group row">
+                        <div class="col-xs-12" data-toggle="buttons">
+                            <label class="sr-only">Choisir votre situation</label>
+                            <div class="btn-group btn-group-justified civility" data-toggle="buttons">
+                                <label class="btn btn-info active">
+                                    <input type="radio">
+                                    Nouveau client
+                                </label>
+                                
+                                <label class="btn btn-info">
+                                    <input type="radio">
+                                    Déjà client
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group margin-b row">
+                        <div class="col-xs-12" data-toggle="buttons">
+                            <label class="sr-only">Choisir votre civilité</label>
+                            <div class="btn-group btn-group-justified civility" data-toggle="buttons">
+                                <label class="btn btn-info active">
+                                    <input type="radio">
+                                    Monsieur
+                                </label>
+
+                                <label class="btn btn-info">
+                                    <input type="radio">
+                                    Madame
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group row">
+                        <div class="col-xs-12">
+                            <label for="formGroupExampleInput" class="sr-only">Nom</label>
+                            <input type="text" class="form-control" value="" placeholder="Nom" required>
+                        </div>  
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-xs-12">
+                            <label for="formGroupExampleInput" class="sr-only">Prénom</label>
+                            <input type="text" class="form-control" value="" placeholder="Prénom" required>
+                        </div>        
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-xs-12">
+                            <label for="example-date-input" class="sr-only">Date de naissance</label>
+                            <input type="text" class="form-control" value="" placeholder="Date de naissance (JJ/MM/AAAA)" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group margin-b row">
+                        <div class="col-xs-12">
+                            <label for="exampleSelect1" class="sr-only">Example select</label>
+                            <select class="form-control list-field">
+                                <option selected>-- Département de naissance --</option>
+                                <option value="01">01 - Ain</option>
+                                <option value="02">02 - Aisne</option>
+                                <option value="03">03 - Allier</option>
+                                <option value="04">04 - Alpes-de-Haute-Provence</option>
+                                <option value="05">05 - Hautes-Alpes</option>
+                                <option value="06">06 - Alpes-Maritimes</option>
+                                <option value="07">07 - Ardèche</option>
+                                <option value="08">08 - Ardennes</option>
+                                <option value="09">09 - Ariège</option>
+                                <option value="10">10 - Aube</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-xs-12">
+                            <label for="formGroupExampleInput" class="sr-only">Téléphone mobile</label>
+                            <input type="text" class="form-control" placeholder="Téléphone mobile" >
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-xs-12">
+                            <label for="formGroupExampleInput" class="sr-only">Téléphone fixe</label>
+                            <input type="text" class="form-control" placeholder="Téléphone fixe">
+                        </div>
+                    </div>
+
+                    <div class="form-group margin-b row">
+                        <div class="col-xs-12">
+                            <label for="exampleInputEmail1" class="sr-only">Email de contact</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email de contact" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-xs-12">
+                            <label for="formGroupExampleInput" class="sr-only">Pièce d'identité de l'acheteur</label>
+                            <input type="text" class="form-control" placeholder="Pièce d'identité de l'acheteur" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-xs-12">
+                            <label for="formGroupExampleInput" class="sr-only">Numéro de la pièce d'identité</label>
+                            <input type="text" class="form-control" placeholder="Numéro de la pièce d'identité" required>
+                        </div>
+                    </div>
+                </div>      
+            </div>
+        </div>
+
+        <!-- PHONE -->
+        <div class="container section-form">
+
+            <div class="title">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h3>Numéro de téléphone</h3>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="wrapper-form col-xs-12 col-sm-offset-2 col-sm-8">         
+                    <div class="form-group row">
+                        <div class="col-xs-12" data-toggle="buttons">
+                            <label class="sr-only">Choisir une option</label>
+                            <div class="btn-group btn-group-justified civility" data-toggle="buttons">
+                                <label class="btn btn-info active">
+                                    <input type="radio">
+                                    Conserver un numéro
+                                </label>
+                                
+                                <label class="btn btn-info">
+                                    <input type="radio">
+                                    Obtenir un nouveau numéro
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-xs-12">
+                            <label for="formGroupExampleInput" class="sr-only">Date</label>
+                            <input type="text" class="form-control" value="" placeholder="Date de portage de ma ligne vers mon nouveau numéro" required>
+                        </div>  
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-xs-12">
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="checkbox" value="">
+                                    Inscription à l'Annuaire Universelle Fixe
+                                </label>
+                            </div>
+                            
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="checkbox" value="">
+                                    Activation contrôle parentale
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ADDRESS INSTALL -->
+        <div class="container section-form">
+
+            <div class="title">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h3>Adresse d'installation</h3>
+                    </div>
+                </div>
+            </div>
+                
+            <div class="row">
+                <div class="wrapper-form col-xs-12 col-sm-offset-2 col-sm-8">
+                    
+                    <div class="form-group row">
+                        <div class="col-xs-12">
+                            <label for="formGroupExampleInput" class="sr-only">N° et voie</label>
+                            <input type="text" class="form-control" value="" placeholder="N° et voie" required>
+                        </div>  
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-xs-12 col-md-4 detail-info">
+                            <label for="formGroupExampleInput" class="sr-only">Batiment</label>
+                            <input type="text" class="form-control" value="" placeholder="Batiment">
+                        </div>
+
+                        <div class="col-xs-12 col-md-4 detail-info">
+                            <label for="formGroupExampleInput" class="sr-only">Etage</label>
+                            <input type="text" class="form-control" value="" placeholder="Etage">
+                        </div>  
+
+                        <div class="col-xs-12 col-md-4">
+                            <label for="formGroupExampleInput" class="sr-only">Escalier</label>
+                            <input type="text" class="form-control" value="" placeholder="Escalier">
+                        </div>  
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-xs-12">
+                            <label for="formGroupExampleInput" class="sr-only">Ville</label>
+                            <input type="text" class="form-control" value="" placeholder="Ville" required>
+                        </div>  
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-xs-12">
+                            <label for="formGroupExampleInput" class="sr-only">Code postale</label>
+                            <input type="text" class="form-control" value="" placeholder="Code postale" required>
+                        </div>  
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-xs-12">
+                            <label for="formGroupExampleInput" class="sr-only">Numéro de prise PTO</label>
+                            <input type="text" class="form-control" value="" placeholder="Numéro de prise PTO" required>
+                        </div>  
+                    </div>
+                </div>
+            </div>  
+        </div>
+
+        <!-- PAYMENT -->
+        <div class="container section-form">
+
+            <div class="title">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h3>Moyen de paiement</h3>
+                    </div>
+                </div>
+            </div>
+   
+            <div class="row">
+                <div class="wrapper-form col-xs-12 col-sm-offset-2 col-sm-8">         
+                    <div class="form-group row">
+                        <div class="col-xs-12">
+                            
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="radio" name="exampleRadios"  value="option1" checked>
+                                    Prélèvement
+                                </label>
+                            </div>
+
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="radio" name="exampleRadios" value="option2">
+                                    Mandat à compte (à remettre)
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
 </div>
