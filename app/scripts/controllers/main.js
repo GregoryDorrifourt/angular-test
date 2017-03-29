@@ -15,3 +15,15 @@ angular.module('angularTestApp')
       'Karma'
     ];
   });
+
+  
+  angular.module('validationApp', []);
+  .controller('MainCtrl', function($scope) {   
+    $scope.submitForm = function() {
+      if ($scope.userForm.$valid) {
+        alert('my form is amazing');
+      }
+
+    };
+
+  });
