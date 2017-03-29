@@ -51,9 +51,11 @@
 	}
 }
 
-/* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
+.info-form {
 
-    /* Remove the bottom border on the jumbotron for visual effect */
- 
+	color:#9d9d9d;
+	margin-bottom: 50px;
+	margin-top: 30px;
+	text-align: center;
 }
+
