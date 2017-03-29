@@ -9,46 +9,51 @@
   
 <form  class="form-horizontal" name="form" >
 
-<div class="expand"></div>
-
     <!--CONTRAT-->
-
+    <div class="box"></div>
     <div class="container">
         <div class="marketing">
-          <h4>Contrat</h4>  
+            <h4>Contrat</h4>
+            <hr />
         </div>
-        <hr />
-
-        <div class="col-xs-12 col-md-8 col-md-offset-2">
+        <div class="row">
+            <div class="col-xs-12 col-md-8 col-md-offset-2">    
                 <div class="form-group row">
                     <div class="col-xs-12" >
+                        <label class="sr-only">Numéro de contrat</label>
                         <input type="text" class="form-control"  name="NumberContract"  placeholder="Numéro de contrat">
                     </div>
                 </div>
+
                 <div class="form-group row">
                     <div class="col-xs-12" >
-                        <select type="text" class="form-control" name="SocietyName"  placeholder="Nom de la société" >
+                        <select type="text" class="form-control" name="SocietyName"  placeholder="Nom de la société">
                             <option>Nom de la société</option>
                         </select>
                     </div>
                 </div>
+
                 <div class="form-group row">
                     <div class="col-xs-12" >
+                        <label class="sr-only">Identifiant vendeur</label>
                         <input type="text" class="form-control" name="IdVendeur"  placeholder="Identifiant vendeur" >
                     </div>
                 </div>
+
                 <div class="form-group row">
                     <div class="col-xs-12" >
+                        <label class="sr-only">Date de signature</label>
                         <input type="text" class="form-control" name="DateSignup"  placeholder="Date de signature du contrat (JJ/MM/AAAA)" >
                     </div>
                 </div> 
-        </div>     
+             </div> 
+        </div>  
     </div>
 
+
     <!--COORDONNES-->
-    <div class="expand"></div>
+    <div class="box"></div>
     <div class="container">
-        
         <div class="marketing">
             <h4>Coordonnées</h4>
             <hr />
@@ -60,13 +65,13 @@
                     <div class="form-group row">
                         <div class="col-xs-12" data-toggle="buttons">
                             <label class="sr-only">Choisir votre situation</label>
-                            <div class="btn-group btn-group-justified civility" data-toggle="buttons">
-                                <label class="btn btn-info active">
+                            <div class="btn-group btn-group-justified" data-toggle="buttons">
+                                <label class="btn btn-default active">
                                     <input type="radio">
                                     Nouveau client
                                 </label>
                                 
-                                <label class="btn btn-info">
+                                <label class="btn btn-default">
                                     <input type="radio">
                                     Déjà client
                                 </label>
@@ -76,16 +81,16 @@
 
                     <div class="form-group row">
                         <div class="col-xs-12" data-toggle="buttons">
-                            <label class="sr-only">Choisir votre situation</label>
-                            <div class="btn-group btn-group-justified civility" data-toggle="buttons">
-                                <label class="btn btn-info active">
+                            <label class="sr-only">Choisir Prefixe</label>
+                            <div class="btn-group btn-group-justified" data-toggle="buttons">
+                                <label class="btn btn-default active">
                                     <input type="radio">
-                                    Nouveau client
+                                    Monsieur
                                 </label>
                                 
-                                <label class="btn btn-info">
+                                <label class="btn btn-default">
                                     <input type="radio">
-                                    Déjà client
+                                    MAdame
                                 </label>
                             </div>
                         </div>
@@ -94,18 +99,21 @@
     
                 <div class="form-group row">
                     <div class="col-xs-12" >
+                        <label class="sr-only">Nom</label>
                         <input type="text" class="form-control"  name="lastname"  placeholder="Nom">
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <div class="col-xs-12" >
+                        <label class="sr-only">Prénom</label>
                         <input type="text" class="form-control" name="firstname"  placeholder="Prénom" >
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <div class="col-xs-12" >
+                        <label class="sr-only">Date de naissance</label>
                         <input type="date" class="form-control" name="date"  placeholder="Date de naissance (08/08/1983)" >
                     </div>
                 </div>
@@ -118,143 +126,200 @@
                     </div>
                 </div> 
 
-
-
-
-
-
                     <div class="form-group row">
                         <div class="col-xs-12" >
+                            <label class="sr-only">Téléphone Mobile</label>
                             <input type="text" class="form-control" name="mobile"  placeholder="Téléphone mobile" >
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <div class="col-xs-12" >
-                            <input type="texte" class="form-control" name="fixe"  placeholder="Téléphone fixe" >
+                        <label class="sr-only">Téléphone Fixe</label>
+                            <input type="text" class="form-control" name="fixe"  placeholder="Téléphone fixe" >
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <div class="col-xs-12" >
+                            <label class="sr-only">Email</label>
                             <input type="email" class="form-control" name="email"  placeholder="Email du contact" >
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <div class="col-xs-12" >
-                            <input type="text" class="form-control" name="pi"  placeholder="Pièce d'identité de l'acheteur" >
+                            <label class="sr-only">PI</label>
+                            <input type="text" class="form-control" name="PI"  placeholder="Pièce d'identité de l'acheteur" >
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <div class="col-xs-12" >
+                            <label class="sr-only">Numéro ID</label>
                             <input type="text" class="form-control" name="numberId"  placeholder="Numéro de la pièce d'identité" >
                         </div>
                     </div>
-                 
-
-
              </div> 
-        </div>   
+        </div>
     </div>
 
-     <!--TEL-->
-    <div class="expand"></div>
-    <div class="container">
-        
+
+
+    <!--TEL-->
+    <div class="box"></div>
+    <div class="container"> 
         <div class="marketing">
             <h4>Numéro de téléphone</h4>
             <hr />
         </div>
-
-        <div class="col-sm-12 adress box">
-            <div class="col-xs-12 col-md-8 col-md-offset-2 buttons">
-                <div class="btn-group btn-group-justified annuaire" >
-                    <div class="col-xs-12 col-sm-6 btn-marge"> 
-                        <button type="button" class="btn btn-default btn-lg btn-trs">Conserver mon numéro</button>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 btn-marge" >
-                        <button type="button" class="btn btn-default btn-lg btn-trs">Obtenir un nouveau numéro</button>
+        <div class="row">
+            <div class="col-xs-12 col-md-8 col-md-offset-2">
+                
+                <div>
+                    <div class="form-group row">
+                        <div class="col-xs-12" data-toggle="buttons">
+                            <label class="sr-only">Choisir numéro</label>
+                            <div class="btn-group btn-group-justified" data-toggle="buttons">
+                                <label class="btn btn-default active">
+                                    <input type="radio">
+                                    Conserver mon numéro
+                                </label>
+                                
+                                <label class="btn btn-default">
+                                    <input type="radio">
+                                    Obtenir un nouveau numéro
+                                </label>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div> 
-
-            <div class="form-group row">
-                <div class="col-xs-12 col-md-8 col-md-offset-2" >
-                    <input type="date" class="form-control" name="DatePortage"  placeholder="Date de portage de ma ligne vers mon nouveau numéro" >
+    
+                <div class="form-group row">
+                    <div class="col-xs-12" >
+                        <label class="sr-only">Date de portage</label>
+                         <input type="text" class="form-control" name="DatePortage"  placeholder="Date de portage de ma ligne vers mon nouveau numéro" >
+                    </div>
                 </div>
-            </div> 
-         
-            <div class="form-group row">
-                <div class="col-xs-12 col-md-8 col-md-offset-2">
-                    <input class="fake-checkbox-input" name="annuaire_universel"  type="checkbox" >
-                    Inscription à l'Annuaire Universel Fixe
-                </div> 
-            </div> 
-
-            <div class="form-group row">
-                <div class="col-xs-12 col-md-8 col-md-offset-2">
-                    <input class="fake-checkbox-input" name="controle_parental"  type="checkbox" >
-                    Activation contrôle parentale
-                </div> 
-            </div>  
-        </div>
+                <div class="form-group row">
+                    <div class="col-xs-12" >
+                        <label class="sr-only">Inscription à l'annuaire</label>
+                        <input class="fake-checkbox-input" name="inscription_annuaire"  type="checkbox" >
+                        Inscription à l'Annuaire Universel Fixe
+                    </div> 
+                </div>
+                
+                <div class="form-group row">
+                    <div class="col-xs-12" >
+                        <label class="sr-only">Activation contrôle parentale</label>
+                        <input class="fake-checkbox-input" name="controle_parental"  type="checkbox" >
+                        Activation contrôle parentale
+                    </div> 
+                    
+                </div>
+             </div> 
+        </div>   
     </div>
 
+
     <!--INSTALLATION-->
-    <div class="expand"></div>
-    <div class="container">
-        
+    <div class="box"></div>
+    <div class="container"> 
         <div class="marketing">
             <h4>Adresse d'installation</h4>
             <hr />
         </div>
+        <div class="row">
+            <div class="col-xs-12 col-md-8 col-md-offset-2">    
+                <div class="form-group row">
+                    <div class="col-xs-12" >
+                        <label class="sr-only">Adresse</label>
+                        <input type="text" class="form-control"  name="AddInstall"  placeholder="Adresse (Numéro + Voie)">
+                    </div>
+                </div>
 
-        <div class="col-sm-12">
-            <div class="form-group row">
-                <div class="col-xs-12 col-md-8 col-md-offset-2" >
-                    <input type="text" class="form-control" name="AddInstall"  placeholder="Adresse (Numéro + Voie)" >
+                <div class="form-group row">
+                    <div>
+                        <div class="col-xs-4 col-sm-4">
+                            <label class="sr-only">Batiment</label>
+                            <input class="form-control type="text" placeholder="Batiment">
+                        </div>
+                        <div class="col-xs-4 col-sm-4">
+                            <label class="sr-only">Etage</label>
+                            <input class="form-control"  type="text" placeholder="Etage">
+                        </div>
+                        <div class="col-xs-4 col-sm-4">
+                            <label class="sr-only">Escalier</label>
+                            <input class="form-control"  type="text" placeholder="Escalier">
+                        </div>
+                    </div>
                 </div>
-            </div> 
-        </div>
-        <div class="form-group row">
-            <div class="col-sm-8 col-sm-offset-2">
-                <div class="col-xs-4 col-sm-4">
-                    <input class="form-control type="text" placeholder="Batiment">
-                </div>
-                <div class="col-xs-4 col-sm-4">
-                    <input class="form-control"  type="text" placeholder="Etage">
-                </div>
-                <div class="col-xs-4 col-sm-4">
-                    <input class="form-control"  type="text" placeholder="Escalier">
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-12">
-            <div class="form-group row">
-                <div class="col-xs-12 col-md-8 col-md-offset-2" >
-                    <input type="text" class="form-control" name="ville"  placeholder="Ville" >
-                </div>
-            </div> 
-        </div>
 
-        <div class="col-sm-12">
-            <div class="form-group row">
-                <div class="col-xs-12 col-md-8 col-md-offset-2">
-                    <input type="text" class="form-control" name="cp"  placeholder="Code postal" >
+                <div class="form-group row">
+                    <div class="col-xs-12" >
+                        <label class="sr-only">Ville</label>
+                        <input type="text" class="form-control" name="ville"  placeholder="Ville" >
+                    </div>
                 </div>
-            </div> 
-        </div>
 
-        <div class="col-sm-12">
-            <div class="form-group row">
-                <div class="col-xs-12 col-md-8 col-md-offset-2" >
-                    <input type="text" class="form-control" name="NumberPto"  placeholder="Numéro de prise PTO (Prise de termination optique)" >
-                </div>
-            </div> 
-        </div>
+                <div class="form-group row">
+                    <div class="col-xs-12" >
+                        <label class="sr-only">CP</label>
+                        <input type="text" class="form-control" name="CP"  placeholder="Code Postal" >
+                    </div>
+                </div> 
+
+                <div class="form-group row">
+                    <div class="col-xs-12" >
+                        <label class="sr-only">Numéro de PTO</label>
+                        <input type="text" class="form-control" name="NumberPto"  placeholder="Numéro de prise PTO (Prise de termination optique)" >
+                    </div>
+                </div> 
+             </div> 
+        </div>   
     </div>
+
+    <!--PAIEMENT-->
+    <div class="box"></div>
+    <div class="container">   
+        <div class="marketing">
+            <h4>Moyen de paiment</h4>
+            <hr />
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-md-8 col-md-offset-2">    
+                <div class="form-group row">
+                    <div class="col-xs-12" >
+                        <input id="prelevement" name="payment_method" type="radio" value="prelevement" />
+                        <label for="prelevement">Prélèvement</label>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-xs-12" >
+                        <input id="mandat" name="mandat" type="radio" value="mandat" />
+                        <label for="mandat">Mandat à compte (à remettre)</label>
+                    </div>
+                </div>
+             </div> 
+        </div>   
+    </div>
+
+    <!--Valider-->
+    <div class="container submit-form">   
+        <div class="row">
+            <div class="col-xs-12 col-md-8 col-md-offset-2">    
+                <div class="form-group row">
+                    <button class="btn btn-primary btn-lg col-xs-6 col-xs-offset-3 col-sm-4 col-sm-offset-4" type="submit">
+                        <span>Valider</span>
+                    </button>
+                </div>
+             </div> 
+        </div>   
+    </div>
+
+    
+    
 </form>
 
 

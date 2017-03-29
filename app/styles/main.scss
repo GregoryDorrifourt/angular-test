@@ -60,16 +60,14 @@ body {
   }
 }
 
-/* Supporting marketing content */
-.marketing {
-  margin: 40px 0;
 
-}
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   .container {
     max-width: 730px;
+    padding-left: 0;
+    padding-right: 0;
   }
 
   /* Remove the padding we set earlier */
