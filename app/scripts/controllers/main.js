@@ -7,23 +7,19 @@
  * # MainCtrl
  * Controller of the angularTestApp
  */
-angular.module('angularTestApp')
-  .controller('MainCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
 
-  
-  angular.module('validationApp', []);
-  .controller('MainCtrl', function($scope) {   
-    $scope.submitForm = function() {
-      if ($scope.userForm.$valid) {
-        alert('my form is amazing');
-      }
 
+
+  angular.module('angularTestApp')
+  .controller('MainCtrl', function($scope) {
+    $scope.reset = function(){
+       /*$scope.firstName = "Toto";
+       $scope.lastName = "Tutu";
+       $scope.email = "tototutu@gmail.com";*/
+       $scope.submitForm = function(isValid) {
+            alert('Fantastiqueeeeeee');
+        };
     };
 
-  });
+    $scope.reset();
+ });

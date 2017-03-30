@@ -1,24 +1,30 @@
 
 <script type="text/ng-template" id="error-messages">
-    <div class="error-messages">
-        <div ng-message="required">Ce champ est requis</div>
-        <div ng-message="email">Adresse email invalide</div>
-        <div ng-message="pattern">Format incorrect</div>
-        <div ng-message="date">Date incorrecte</div>
-    </div>  
+  <span  ng-message="required">Le champ est obligatoire.</span>
+  <span ng-message="min">Le champ est trop court.</span>
+  <span ng-message="max">Le champ est trop long.</span>
+  <span ng-message="number">Le champ ne doit comporter que des chiffres.</span>
+  <span ng-message="date">La date est obligatoire.</span>
 </script>
 
-<div ng-app = "mainApp" ng-controller = "validationApp">
+<div  ng-init="myText='Hello Heroes!'">
+<h1>{{myText}}</h1> 
+
+
+</div>
+
 <div class="jumbotron">
   <h1>'Why so serious'!</h1>
   <p class="lead">
-    <img src="images/wolwo2.jpg" alt="I'm Yeoman"><br><br>
-    Life is a joke.
+    <img src="images/wolwo2.jpg" alt="I'm Wolvo"><br><br>
+    Life is a joke. 
+
+
   </p>
 </div>
 
   
-<form  class="form-horizontal" name="userForm" ng-submit="submitForm()" novalidate>
+<form  class="form-horizontal" name="userForm" ng-submit="submitForm(userForm.$valid)" novalidate>
 
     <!--CONTRAT-->
     <div class="box"></div>
@@ -29,37 +35,50 @@
         </div>
         <div class="row">
             <div class="col-xs-12 col-md-8 col-md-offset-2">    
-                <div class="form-group row">
-                    <div class="col-xs-12" >
+                <div class="form-group row" ng-class="{ 'has-error' : userForm.NumberContract.$invalid && !userForm.NumberContract.$pristine }">
+                    <div class="col-xs-12" class="has-error" >
                         <label class="sr-only">Numéro de contrat</label>
-                        <input type="text" class="form-control"  name="NumberContract"  placeholder="Numéro de contrat" required ng-model="user.NumberContract">
+                        <input type="text" class="form-control"  name="NumberContract"  ng-pattern="" placeholder="Numéro de contrat" ng-required="true" ng-model="user.NumberContract"  ng-minlength="3" ng-maxlength="8">
+                        <p ng-show="userForm.NumberContract.$invalid && !userForm.NumberContract.$pristine && !userForm.NumberContract.$error.minlength && !userForm.NumberContract.$error.maxlength" class="has-feedback help-block">Numéro de contrat obligatoire.</p>
+                        <p ng-show="userForm.NumberContract.$error.minlength" class="has-feedback help-block">Numéro de contrat trop court.</p>
+                        <p ng-show="userForm.NumberContract.$error.maxlength" class="has-feedback help-block">Numéro de contrat trop long.</p>
                     </div>
-                    <div ng-messages="error-messages"></div>
+                    <div ng-messages="userForm.DateSignup.$error"  ng-show="(userForm.DateSignup.$invalid && userForm.DateSignup.$dirty)" role="alert">
+                        <div ng-messages-include="error-messages"></div>
+                    </div>
                 </div>
 
                 <div class="form-group row">
                     <div class="col-xs-12" >
-                        <select type="text" class="form-control" name="SocietyName"  placeholder="Nom de la société" required ng-model="user.SocietyName">
+                        <select type="text" class="form-control" name="SocietyName"  ng-pattern="" placeholder="Nom de la société" ng-required="true" ng-model="user.SocietyName">
                             <option>Nom de la société</option>
-                        </select>
+                        </select> 
+                    
+                        <div ng-messages="userForm.SocietyName.$error"  ng-show="(userForm.SocietyName.$invalid && userForm.SocietyName.$dirty)" role="alert">
+                            <div ng-messages-include="error-messages"></div>
+                        </div>
                     </div>
-                    <div ng-messages="error-messages"></div>
                 </div>
 
-                <div class="form-group row">
+                <div class="form-group row"  ng-class="{ 'has-error' : userForm.IdVendeur.$invalid && !userForm.IdVendeur.$pristine }">
                     <div class="col-xs-12" >
                         <label class="sr-only">Identifiant vendeur</label>
-                        <input type="text" class="form-control" name="IdVendeur"  placeholder="Identifiant vendeur" required ng-model="user.IdVendeur">
+                        <input type="text" class="form-control" name="IdVendeur"  ng-pattern="" placeholder="Identifiant vendeur" ng-required="true" ng-model="user.IdVendeur"  ng-minlength="3" ng-maxlength="8">
+                    
+                        <div ng-messages="userForm.IdVendeur.$error"  ng-show="(userForm.IdVendeur.$invalid && userForm.IdVendeur.$dirty)" role="alert">
+                            <div ng-messages-include="error-messages"></div>
+                        </div>
                     </div>
-                    <div ng-messages="error-messages"></div>
                 </div>
 
-                <div class="form-group row">
+                <div class="form-group row" ng-class="{ 'has-error' : userForm.DateSignup.$invalid && !userForm.DateSignup.$pristine }">
                     <div class="col-xs-12" >
                         <label class="sr-only">Date de signature</label>
-                        <input type="text" class="form-control" name="DateSignup"  placeholder="Date de signature du contrat (JJ/MM/AAAA)" required ng-model="user.DateSignup">
+                        <input type="text" class="form-control" name="DateSignup"  minlength="10" maxlength="10" ng-pattern="" placeholder="Date de signature du contrat (JJ/MM/AAAA)" ng-required="true" ng-model="user.DateSignup">
+                        <div ng-messages="userForm.DateSignup.$error"  ng-show="(userForm.DateSignup.$invalid && userForm.DateSignup.$dirty)" role="alert">
+                            <div ng-messages-include="error-messages"></div>
+                        </div>
                     </div>
-                    <div ng-messages="error-messages"></div>
                 </div> 
              </div> 
         </div>  
@@ -92,7 +111,9 @@
                                 </label>
                             </div>
                         </div>
-                        <div ng-messages="error-messages"></div>
+                        <div ng-messages="userForm.client.$error"  ng-show="(userForm.client.$invalid && userForm.client.$dirty)" role="alert">
+                            <div ng-messages-include="error-messages"></div>
+                        </div>
                     </div>
 
                     <div class="form-group row">
@@ -110,81 +131,101 @@
                                 </label>
                             </div>
                         </div>
-                        <div ng-messages="error-messages"></div>
+                        <div ng-messages="userForm.prefixe.$error"  ng-show="(userForm.prefixe.$invalid && userForm.prefixe.$dirty)" role="alert">
+                            <div ng-messages-include="error-messages"></div>
+                        </div>
                     </div>
                 </div>
     
-                <div class="form-group row">
+                <div class="form-group row" ng-class="{ 'has-error' : userForm.lastname.$invalid && !userForm.lastname.$pristine }">
                     <div class="col-xs-12" >
                         <label class="sr-only">Nom</label>
-                        <input type="text" class="form-control"  name="lastname"  placeholder="Nom" required ng-model="user.lastname">
+                        <input type="text" class="form-control"  name="lastname"  ng-pattern="" placeholder="Nom" ng-required="true" ng-model="user.lastname">
+                        <div ng-messages="userForm.lastname.$error"  ng-show="(userForm.lastname.$invalid && userForm.lastname.$dirty)" role="alert">
+                            <div ng-messages-include="error-messages"></div>
+                        </div>
                     </div>
-                    <div ng-messages="error-messages"></div>
                 </div>
 
-                <div class="form-group row">
+                <div class="form-group row" ng-class="{ 'has-error' : userForm.firstname.$invalid && !userForm.firstname.$pristine }">
                     <div class="col-xs-12" >
                         <label class="sr-only">Prénom</label>
-                        <input type="text" class="form-control" name="firstname"  placeholder="Prénom" required ng-model="user.firstname">
+                        <input type="text" class="form-control" name="firstname"  ng-pattern="" placeholder="Prénom" ng-required="true" ng-model="user.firstname">
+                        <div ng-messages="userForm.firstname.$error"  ng-show="(userForm.firstname.$invalid && userForm.firstname.$dirty)" role="alert">
+                            <div ng-messages-include="error-messages"></div>
+                        </div>
                     </div>
-                    <div ng-messages="error-messages"></div>
                 </div>
 
-                <div class="form-group row">
+                <div class="form-group row" ng-class="{ 'has-error' : userForm.DateSignup.$invalid && !userForm.DateSignup.$pristine }">
                     <div class="col-xs-12" >
                         <label class="sr-only">Date de naissance</label>
-                        <input type="date" class="form-control" name="birth_date"  placeholder="Date de naissance (08/08/1983)" required ng-model="user.birth_date">
+                        <input type="date" class="form-control" name="birth_date"  ng-pattern="" placeholder="Date de naissance (08/08/1983)" ng-required="true" ng-model="user.birth_date">
                     </div>
-                    <div ng-messages="error-messages"></div>
+                    <div ng-messages="userForm.DateSignup.$error"  ng-show="(userForm.DateSignup.$invalid && userForm.DateSignup.$dirty)" role="alert">
+                            <div ng-messages-include="error-messages"></div>
+                        </div>
                 </div>
 
-                <div class="form-group row">
+                <div class="form-group row" ng-class="{ 'has-error' : userForm.Dpt.$invalid && !userForm.Dpt.$pristine }">
                     <div class="col-xs-12" >
-                        <select type="text" class="form-control" name="Dpt"  placeholder="Département de naissance" required ng-model="user.dpt">
+                        <select type="text" class="form-control" name="Dpt"  ng-pattern="" placeholder="Département de naissance" ng-required="true" ng-model="user.dpt">
                             <option>Département de naissance</option>
                         </select>
+                        <div ng-messages="userForm.Dpt.$error"  ng-show="(userForm.Dpt.$invalid && userForm.Dpt.$dirty)" role="alert">
+                            <div ng-messages-include="error-messages"></div>
+                        </div>
                     </div>
-                    <div ng-messages="error-messages"></div>
                 </div> 
 
-                    <div class="form-group row">
+                    <div class="form-group row" ng-class="{ 'has-error' : userForm.mobile.$invalid && !userForm.mobile.$pristine }">
                         <div class="col-xs-12" >
                             <label class="sr-only">Téléphone Mobile</label>
-                            <input type="text" class="form-control" name="mobile"  placeholder="Téléphone mobile" required ng-model="user.mobile">
+                            <input type="text" class="form-control" name="mobile"  ng-pattern="" placeholder="Téléphone mobile" ng-required="true" ng-model="user.mobile">
+                            <div ng-messages="userForm.mobile.$error"  ng-show="(userForm.mobile.$invalid && userForm.mobile.$dirty)" role="alert">
+                                <div ng-messages-include="error-messages"></div>
+                            </div>
                         </div>
-                        <div ng-messages="error-messages"></div>
                     </div>
 
-                    <div class="form-group row">
+                    <div class="form-group row" ng-class="{ 'has-error' : userForm.fixe.$invalid && !userForm.fixe.$pristine }">
                         <div class="col-xs-12" >
                         <label class="sr-only">Téléphone Fixe</label>
-                            <input type="text" class="form-control" name="fixe"  placeholder="Téléphone fixe" required ng-model="user.fixe">
+                            <input type="text" class="form-control" name="fixe"  ng-pattern="" placeholder="Téléphone fixe" ng-required="true" ng-model="user.fixe">
+                            <div ng-messages="userForm.fixe.$error"  ng-show="(userForm.fixe.$invalid && userForm.fixe.$dirty)" role="alert">
+                                <div ng-messages-include="error-messages"></div>
+                            </div>
                         </div>
-                        <div ng-messages="error-messages"></div>
                     </div>
 
-                    <div class="form-group row">
+                    <div class="form-group row" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
                         <div class="col-xs-12" >
                             <label class="sr-only">Email</label>
-                            <input type="email" class="form-control" name="email"  placeholder="Email du contact" required ng-model="user.email">
+                            <input type="email" class="form-control" name="email"  ng-pattern="" placeholder="Email du contact" ng-required="true" ng-model="user.email">
+                            <div ng-messages="userForm.email.$error"  ng-show="(userForm.email.$invalid && userForm.email.$dirty)" role="alert">
+                                <div ng-messages-include="error-messages"></div>
+                            </div>
                         </div>
-                        <div ng-messages="error-messages"></div>
                     </div>
 
-                    <div class="form-group row">
+                    <div class="form-group row" ng-class="{ 'has-error' : userForm.pi.$invalid && !userForm.pi.$pristine }">
                         <div class="col-xs-12" >
                             <label class="sr-only">PI</label>
-                            <input type="text" class="form-control" name="pi"  placeholder="Pièce d'identité de l'acheteur" required ng-model="user.pi">
+                            <input type="text" class="form-control" name="pi"  ng-pattern="" placeholder="Pièce d'identité de l'acheteur" ng-required="true" ng-model="user.pi">
+                            <div ng-messages="userForm.pi.$error"  ng-show="(userForm.pi.$invalid && userForm.pi.$dirty)" role="alert">
+                                <div ng-messages-include="error-messages"></div>
+                            </div>
                         </div>
-                        <div ng-messages="error-messages"></div>
                     </div>
 
-                    <div class="form-group row">
+                    <div class="form-group row" ng-class="{ 'has-error' : userForm.numberId.$invalid && !userForm.numberId.$pristine }">
                         <div class="col-xs-12" >
                             <label class="sr-only">Numéro ID</label>
-                            <input type="text" class="form-control" name="numberId"  placeholder="Numéro de la pièce d'identité" required ng-model="user.numberId">
+                            <input type="text" class="form-control" name="numberId"  ng-pattern="" placeholder="Numéro de la pièce d'identité" ng-required="true" ng-model="user.numberId">
+                            <div ng-messages="userForm.numberId.$error"  ng-show="(userForm.numberId.$invalid && userForm.numberId.$dirty)" role="alert">
+                                <div ng-messages-include="error-messages"></div>
+                            </div>
                         </div>
-                        <div ng-messages="error-messages"></div>
                     </div>
              </div> 
         </div>
@@ -218,33 +259,35 @@
                                 </label>
                             </div>
                         </div>
-                        <div ng-messages="error-messages"></div>
+                        <div ng-messages="userForm.number.$error"  ng-show="(userForm.number.$invalid && userForm.number.$dirty)" role="alert">
+                            <div ng-messages-include="error-messages"></div>
+                        </div>
                     </div>
                 </div>
     
-                <div class="form-group row">
+                <div class="form-group row" ng-class="{ 'has-error' : userForm.DatePortage.$invalid && !userForm.DatePortage.$pristine }">
                     <div class="col-xs-12" >
                         <label class="sr-only">Date de portage</label>
-                         <input type="text" class="form-control" name="DatePortage"  placeholder="Date de portage de ma ligne vers mon nouveau numéro" required ng-model="user.DatePortage">
+                         <input type="text" class="form-control" name="DatePortage"  ng-pattern="" placeholder="Date de portage de ma ligne vers mon nouveau numéro" ng-required="true" ng-model="user.DatePortage">
+                        <div ng-messages="userForm.DatePortage.$error"  ng-show="(userForm.DatePortage.$invalid && userForm.DatePortage.$dirty)" role="alert">
+                            <div ng-messages-include="error-messages"></div>
+                        </div>
                     </div>
-                    <div ng-messages="error-messages"></div>
                 </div>
-                <div class="form-group row">
+                <div class="form-group row" ng-class="{ 'has-error' : userForm.inscriptionAnnuaire.$invalid && !userForm.inscriptionAnnuaire.$pristine }">
                     <div class="col-xs-12" >
                         <label class="sr-only">Inscription à l'annuaire</label>
-                        <input class="fake-checkbox-input" name="inscription_annuaire"  type="checkbox" required ng-model="user.inscription_annuaire">
+                        <input class="fake-checkbox-input" name="inscriptionAnnuaire"  type="checkbox" ng-required="true" ng-model="user.inscriptionAnnuaire">
                         Inscription à l'Annuaire Universel Fixe
                     </div> 
-                    <div ng-messages="error-messages"></div>
                 </div>
                 
-                <div class="form-group row">
+                <div class="form-group row" ng-class="{ 'has-error' : userForm.controleParental.$invalid && !userForm.controleParental.$pristine }">
                     <div class="col-xs-12" >
                         <label class="sr-only">Activation contrôle parentale</label>
-                        <input class="fake-checkbox-input" name="controle_parental"  type="checkbox" required  ng-model="user.controle_parental">
+                        <input class="fake-checkbox-input" name="controleParental"  type="checkbox" ng-required="true"  ng-model="user.controleParental">
                         Activation contrôle parentale
                     </div> 
-                    <div ng-messages="error-messages"></div>
                 </div>
              </div> 
         </div>   
@@ -260,53 +303,61 @@
         </div>
         <div class="row">
             <div class="col-xs-12 col-md-8 col-md-offset-2">    
-                <div class="form-group row">
+                <div class="form-group row" ng-class="{ 'has-error' : userForm.AddInstall.$invalid && !userForm.AddInstall.$pristine }">
                     <div class="col-xs-12" >
                         <label class="sr-only">Adresse</label>
-                        <input type="text" class="form-control"  name="AddInstall"  placeholder="Adresse (Numéro + Voie)" required ng-model="user.AddInstall">
+                        <input type="text" class="form-control"  name="AddInstall"  ng-pattern="" placeholder="Adresse (Numéro + Voie)" ng-required="true" ng-model="user.AddInstall">
+                        <div ng-messages="userForm.AddInstall.$error"  ng-show="(userForm.AddInstall.$invalid && userForm.AddInstall.$dirty)" role="alert">
+                            <div ng-messages-include="error-messages"></div>
+                        </div>
                     </div>
-                    <div ng-messages="error-messages"></div>
                 </div>
 
                 <div class="form-group row">
                     <div>
                         <div class="col-xs-4 col-sm-4">
                             <label class="sr-only">Batiment</label>
-                            <input class="form-control type="text" placeholder="Batiment">
+                            <input class="form-control type="text" ng-pattern="" placeholder="Batiment">
                         </div>
                         <div class="col-xs-4 col-sm-4">
                             <label class="sr-only">Etage</label>
-                            <input class="form-control"  type="text" placeholder="Etage">
+                            <input class="form-control"  type="text" ng-pattern="" placeholder="Etage">
                         </div>
                         <div class="col-xs-4 col-sm-4">
                             <label class="sr-only">Escalier</label>
-                            <input class="form-control"  type="text" placeholder="Escalier">
+                            <input class="form-control"  type="text" ng-pattern="" placeholder="Escalier">
                         </div>
                     </div>
                 </div>
 
-                <div class="form-group row">
+                <div class="form-group row" ng-class="{ 'has-error' : userForm.ville.$invalid && !userForm.ville.$pristine }">
                     <div class="col-xs-12" >
                         <label class="sr-only">Ville</label>
-                        <input type="text" class="form-control" name="ville"  placeholder="Ville" required ng-model="user.ville">
+                        <input type="text" class="form-control" name="ville"  ng-pattern="" placeholder="Ville" ng-required="true" ng-model="user.ville">                    
+                        <div ng-messages="userForm.ville.$error"  ng-show="(userForm.ville.$invalid && userForm.ville.$dirty)" role="alert">
+                            <div ng-messages-include="error-messages"></div>
+                        </div>
                     </div>
-                    <div ng-messages="error-messages"></div>
                 </div>
 
-                <div class="form-group row">
+                <div class="form-group row" ng-class="{ 'has-error' : userForm.cp.$invalid && !userForm.cp.$pristine }">
                     <div class="col-xs-12" >
                         <label class="sr-only">CP</label>
-                        <input type="text" class="form-control" name="cp"  placeholder="Code Postal" required ng-model="user.cp">
+                        <input type="text" class="form-control" name="cp"  ng-pattern="" placeholder="Code Postal" ng-required="true" ng-model="user.cp">
+                        <div ng-messages="userForm.cp.$error"  ng-show="(userForm.cp.$invalid && userForm.cp.$dirty)" role="alert">
+                            <div ng-messages-include="error-messages"></div>
+                        </div>
                     </div>
-                    <div ng-messages="error-messages"></div>
                 </div> 
 
-                <div class="form-group row">
+                <div class="form-group row" ng-class="{ 'has-error' : userForm.NumberPto.$invalid && !userForm.NumberPto.$pristine }">
                     <div class="col-xs-12" >
                         <label class="sr-only">Numéro de PTO</label>
-                        <input type="text" class="form-control" name="NumberPto"  placeholder="Numéro de prise PTO (Prise de termination optique)" required ng-model="user.NumberPto">
+                        <input type="text" class="form-control" name="NumberPto"  ng-pattern="" placeholder="Numéro de prise PTO (Prise de termination optique)" ng-required="true" ng-model="user.NumberPto">
+                        <div ng-messages="userForm.NumberPto.$error"  ng-show="(userForm.NumberPto.$invalid && userForm.NumberPto.$dirty)" role="alert">
+                            <div ng-messages-include="error-messages"></div>
+                        </div>
                     </div>
-                    <div ng-messages="error-messages"></div>
                 </div> 
              </div> 
         </div>   
@@ -326,17 +377,18 @@
                         <input id="prelevement" name="payment_method" type="radio" value="prelevement" ng-model="user.payment_method" />
                         <label for="prelevement">Prélèvement</label>
                     </div>
-                    <div ng-messages="error-messages"></div>
                 </div>
 
                 <div class="form-group row">
                     <div class="col-xs-12" >
-                        <input id="mandat" name="mandat" type="radio" value="mandat"  ng-model="user.mandat" />
+                        <input id="mandat" name="payment_method" type="radio" value="mandat"  ng-model="user.payment_method" />
                         <label for="mandat">Mandat à compte (à remettre)</label>
                     </div>
-                    <div ng-messages="error-messages"></div>
                 </div>
              </div> 
+        </div>
+        <div ng-messages="userForm.payment_method.$error"  ng-show="(userForm.payment_method.$invalid && userForm.payment_method.$dirty)" role="alert">
+            <div ng-messages-include="error-messages"></div>
         </div>   
     </div>
 
@@ -356,7 +408,5 @@
     
     
 </form>
-
-</div>
 
 
