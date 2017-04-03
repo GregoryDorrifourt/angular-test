@@ -38,11 +38,11 @@
                 <div class="form-group row" ng-class="{ 'has-error' : userForm.NumberContract.$invalid && !userForm.NumberContract.$pristine }">
                     <div class="col-xs-12" class="has-error" >
                         <label class="sr-only">Numéro de contrat</label>
-                        <input type="text" class="form-control"  name="NumberContract"  ng-pattern="" placeholder="Numéro de contrat" ng-required="true" ng-model="user.NumberContract"  ng-minlength="3" ng-maxlength="8">
+                        <input type="text" class="form-control"  name="NumberContract"  ng-pattern="PATTERNS.PHONE_REGEXP" placeholder="Numéro de contrat" ng-required="true" ng-model="user.NumberContract"  ng-minlength="3" ng-maxlength="8">
                         <!--<p ng-show="userForm.NumberContract.$invalid && !userForm.NumberContract.$pristine && !userForm.NumberContract.$error.minlength && !userForm.NumberContract.$error.maxlength" class="has-feedback help-block">Numéro de contrat obligatoire.</p>
                         <p ng-show="userForm.NumberContract.$error.minlength" class="has-feedback help-block">Numéro de contrat trop court.</p>
                         <p ng-show="userForm.NumberContract.$error.maxlength" class="has-feedback help-block">Numéro de contrat trop long.</p>-->
-                        <div ng-messages="userForm.NumberContract.$error" class="has-feedback help-block"  ng-show="(userForm.NumberContract.$invalid && userForm.NumberContract.$dirty)" role="alert">
+                        <div ng-messages="userForm.NumberContract.$error || userForm.NumberContract.number" class="has-feedback help-block"  ng-show="(userForm.NumberContract.$invalid && userForm.NumberContract.$dirty)" role="alert">
                             <div ng-messages-include="error-messages"></div>
                         </div>
                     </div>
@@ -50,7 +50,7 @@
 
                 <div class="form-group row">
                     <div class="col-xs-12" >
-                        <select type="text" class="form-control" name="SocietyName"  ng-pattern="" placeholder="Nom de la société" ng-required="true" ng-model="user.SocietyName">
+                        <select type="text" class="form-control" name="SocietyName"  placeholder="Nom de la société" ng-required="true" ng-model="user.SocietyName">
                             <option>Nom de la société</option>
                         </select> 
                     
@@ -63,7 +63,7 @@
                 <div class="form-group row"  ng-class="{ 'has-error' : userForm.IdVendeur.$invalid && !userForm.IdVendeur.$pristine }">
                     <div class="col-xs-12" >
                         <label class="sr-only">Identifiant vendeur</label>
-                        <input type="text" class="form-control" name="IdVendeur" ng-pattern="" placeholder="Identifiant vendeur" ng-required="true" ng-model="user.IdVendeur"  ng-minlength="3" ng-maxlength="8">
+                        <input type="text" class="form-control" name="IdVendeur" placeholder="Identifiant vendeur" ng-required="true" ng-model="user.IdVendeur"  ng-minlength="3" ng-maxlength="8">
                     
                         <div ng-messages="userForm.IdVendeur.$error" class="has-feedback help-block" ng-show="(userForm.IdVendeur.$invalid && userForm.IdVendeur.$dirty)" role="alert">
                             <div ng-messages-include="error-messages"></div>
@@ -74,8 +74,8 @@
                 <div class="form-group row" ng-class="{ 'has-error' : userForm.DateSignup.$invalid && !userForm.DateSignup.$pristine }">
                     <div class="col-xs-12" >
                         <label class="sr-only">Date de signature</label>
-                        <input type="text" class="form-control" name="DateSignup"  minlength="10" maxlength="10" ng-pattern="" placeholder="Date de signature du contrat (JJ/MM/AAAA)" ng-required="true" ng-model="user.DateSignup">
-                        <div ng-messages="userForm.DateSignup.$error" class="has-feedback help-block" ng-show="(userForm.DateSignup.$invalid && userForm.DateSignup.$dirty)" role="alert">
+                        <input type="text" class="form-control" name="DateSignup"  minlength="10" maxlength="10" ng-pattern="PATTERNS.FRENCH_SIMPLE_DATE_REGEXP" placeholder="Date de signature du contrat (JJ/MM/AAAA)" ng-required="true" ng-model="user.DateSignup">
+                        <div ng-messages="userForm.DateSignup.$error || userForm.DateSignup.number" class="has-feedback help-block" ng-show="(userForm.DateSignup.$invalid && userForm.DateSignup.$dirty)" role="alert">
                             <div ng-messages-include="error-messages"></div>
                         </div>
                     </div>
@@ -140,7 +140,7 @@
                 <div class="form-group row" ng-class="{ 'has-error' : userForm.lastname.$invalid && !userForm.lastname.$pristine }">
                     <div class="col-xs-12" >
                         <label class="sr-only">Nom</label>
-                        <input type="text" class="form-control"  name="lastname"  ng-pattern="" placeholder="Nom" ng-required="true" ng-model="user.lastname">
+                        <input type="text" class="form-control"  name="lastname"  ng-pattern="PATTERNS.NAME_REGEXP" placeholder="Nom" ng-required="true" ng-model="user.lastname">
                         <div ng-messages="userForm.lastname.$error" class="has-feedback help-block" ng-show="(userForm.lastname.$invalid && userForm.lastname.$dirty)" role="alert">
                             <div ng-messages-include="error-messages"></div>
                         </div>
@@ -150,26 +150,26 @@
                 <div class="form-group row" ng-class="{ 'has-error' : userForm.firstname.$invalid && !userForm.firstname.$pristine }">
                     <div class="col-xs-12" >
                         <userForm class="sr-only">Prénom</label>
-                        <input type="text" class="form-control" name="firstname"  ng-pattern="" placeholder="Prénom" ng-required="true" ng-model="user.firstname">
+                        <input type="text" class="form-control" name="firstname"  ng-pattern="PATTERNS.NAME_REGEXP" placeholder="Prénom" ng-required="true" ng-model="user.firstname">
                         <div ng-messages="userForm.firstname.$error" class="has-feedback help-block" ng-show="(userForm.firstname.$invalid && userForm.firstname.$dirty)" role="alert">
                             <div ng-messages-include="error-messages"></div>
                         </div>
                     </div>
                 </div>
 
-                <div class="form-group row" ng-class="{ 'has-error' : userForm.DateSignup.$invalid && !userForm.DateSignup.$pristine }">
+                <div class="form-group row" ng-class="{ 'has-error' : userForm.BirthDate.$invalid && !userForm.BirthDate.$pristine }">
                     <div class="col-xs-12" >
                         <label class="sr-only">Date de naissance</label>
-                        <input type="date" class="form-control" name="birth_date"  ng-pattern="" placeholder="Date de naissance (08/08/1983)" ng-required="true" ng-model="user.birth_date">
+                        <input type="text" class="form-control" name="BirthDate"  placeholder="Date de naissance (08/08/1983)" ng-required="true" ng-model="user.BirthDate">
                     </div>
-                    <div ng-messages="userForm.DateSignup.$error" class="has-feedback help-block" ng-show="(userForm.DateSignup.$invalid && userForm.DateSignup.$dirty)" role="alert">
+                    <div ng-messages="userForm.BirthDate.$error || userForm.BirthDate.number" class="has-feedback help-block" ng-show="(userForm.BirthDate.$invalid && userForm.BirthDate.$dirty)" role="alert">
                             <div ng-messages-include="error-messages"></div>
                         </div>
                 </div>
 
                 <div class="form-group row" ng-class="{ 'has-error' : userForm.Dpt.$invalid && !userForm.Dpt.$pristine }">
                     <div class="col-xs-12" >
-                        <select type="text" class="form-control" name="Dpt"  ng-pattern="" placeholder="Département de naissance" ng-required="true" ng-model="user.dpt">
+                        <select type="text" class="form-control" name="Dpt"  placeholder="Département de naissance" ng-required="true" ng-model="user.dpt">
                             <option>Département de naissance</option>
                         </select>
                         <div ng-messages="userForm.Dpt.$error" class="has-feedback help-block" ng-show="(userForm.Dpt.$invalid && userForm.Dpt.$dirty)" role="alert">
@@ -181,8 +181,8 @@
                     <div class="form-group row" ng-class="{ 'has-error' : userForm.mobile.$invalid && !userForm.mobile.$pristine }">
                         <div class="col-xs-12" >
                             <label class="sr-only">Téléphone Mobile</label>
-                            <input type="text" class="form-control" name="mobile"  ng-pattern="" placeholder="Téléphone mobile" ng-required="true" ng-model="user.mobile">
-                            <div ng-messages="userForm.mobile.$error" class="has-feedback help-block" ng-show="(userForm.mobile.$invalid && userForm.mobile.$dirty)" role="alert">
+                            <input type="text" class="form-control" name="mobile"  ng-pattern="PATTERNS.PHONE_REGEXP" placeholder="Téléphone mobile" ng-required="true" ng-model="user.mobile" minlength="10" maxlength="10">
+                            <div ng-messages="userForm.mobile.$error || userForm.mobile.number" class="has-feedback help-block" ng-show="(userForm.mobile.$invalid && userForm.mobile.$dirty)" role="alert">
                                 <div ng-messages-include="error-messages"></div>
                             </div>
                         </div>
@@ -191,8 +191,8 @@
                     <div class="form-group row" ng-class="{ 'has-error' : userForm.fixe.$invalid && !userForm.fixe.$pristine }">
                         <div class="col-xs-12" >
                         <label class="sr-only">Téléphone Fixe</label>
-                            <input type="text" class="form-control" name="fixe"  ng-pattern="" placeholder="Téléphone fixe" ng-required="true" ng-model="user.fixe">
-                            <div ng-messages="userForm.fixe.$error" class="has-feedback help-block" ng-show="(userForm.fixe.$invalid && userForm.fixe.$dirty)" role="alert">
+                            <input type="text" class="form-control" name="fixe"  ng-pattern="PATTERNS.PHONE_REGEXP" placeholder="Téléphone fixe" ng-required="true" ng-model="user.fixe" minlength="10" maxlength="10">
+                            <div ng-messages="userForm.fixe.$error  || userForm.fixe.number" class="has-feedback help-block" ng-show="(userForm.fixe.$invalid && userForm.fixe.$dirty)" role="alert">
                                 <div ng-messages-include="error-messages"></div>
                             </div>
                         </div>
@@ -201,7 +201,7 @@
                     <div class="form-group row" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
                         <div class="col-xs-12" >
                             <label class="sr-only">Email</label>
-                            <input type="email" class="form-control" name="email"  ng-pattern="" placeholder="Email du contact" ng-required="true" ng-model="user.email">
+                            <input type="email" class="form-control" name="email"  ng-pattern="EMAIL_REGEXP" placeholder="Email du contact" ng-required="true" ng-model="user.email">
                             <div ng-messages="userForm.email.$error" class="has-feedback help-block" ng-show="(userForm.email.$invalid && userForm.email.$dirty)" role="alert">
                                 <div ng-messages-include="error-messages"></div>
                             </div>
@@ -211,7 +211,7 @@
                     <div class="form-group row" ng-class="{ 'has-error' : userForm.pi.$invalid && !userForm.pi.$pristine }">
                         <div class="col-xs-12" >
                             <label class="sr-only">PI</label>
-                            <input type="text" class="form-control" name="pi"  ng-pattern="" placeholder="Pièce d'identité de l'acheteur" ng-required="true" ng-model="user.pi">
+                            <input type="text" class="form-control" name="pi"  placeholder="Pièce d'identité de l'acheteur" ng-required="true" ng-model="user.pi">
                             <div ng-messages="userForm.pi.$error" class="has-feedback help-block" ng-show="(userForm.pi.$invalid && userForm.pi.$dirty)" role="alert">
                                 <div ng-messages-include="error-messages"></div>
                             </div>
@@ -221,8 +221,8 @@
                     <div class="form-group row" ng-class="{ 'has-error' : userForm.numberId.$invalid && !userForm.numberId.$pristine }">
                         <div class="col-xs-12" >
                             <label class="sr-only">Numéro ID</label>
-                            <input type="text" class="form-control" name="numberId"  ng-pattern="" placeholder="Numéro de la pièce d'identité" ng-required="true" ng-model="user.numberId" minlength="9">
-                            <div ng-messages="userForm.numberId.$error || userForm.numberId.minlength" class="has-feedback help-block" ng-show="(userForm.numberId.$invalid && userForm.numberId.$dirty)" role="alert">
+                            <input type="text" class="form-control" name="numberId"  placeholder="Numéro de la pièce d'identité" ng-required="true" ng-model="user.numberId" minlength="9">
+                            <div ng-messages="userForm.numberId.$error || userForm.numberId.minlength || userForm.numberId.number" class="has-feedback help-block" ng-show="(userForm.numberId.$invalid && userForm.numberId.$dirty)" role="alert">
                                 <div ng-messages-include="error-messages"></div>
                             </div>
                         </div>
@@ -268,9 +268,9 @@
                 <div class="form-group row" ng-class="{ 'has-error' : userForm.DatePortage.$invalid && !userForm.DatePortage.$pristine }">
                     <div class="col-xs-12" >
                         <label class="sr-only">Date de portage</label>
-                         <input type="text" class="form-control" name="DatePortage"  ng-pattern="" placeholder="Date de portage de ma ligne vers mon nouveau numéro" ng-required="true" ng-model="user.DatePortage">
+                         <input type="text" class="form-control" name="DatePortage"  placeholder="Date de portage de ma ligne vers mon nouveau numéro" ng-required="true" ng-model="user.DatePortage">
                         <div ng-messages="userForm.DatePortage.$error" class="has-feedback help-block" ng-show="(userForm.DatePortage.$invalid && userForm.DatePortage.$dirty)" role="alert">
-                            <div ng-messages-include="error-messages"></div>
+                            <div ng-messages-include="error-messages || userForm.DatePortage.number"></div>
                         </div>
                     </div>
                 </div>
@@ -306,7 +306,7 @@
                 <div class="form-group row" ng-class="{ 'has-error' : userForm.AddInstall.$invalid && !userForm.AddInstall.$pristine }">
                     <div class="col-xs-12" >
                         <label class="sr-only">Adresse</label>
-                        <input type="text" class="form-control"  name="AddInstall"  ng-pattern="" placeholder="Adresse (Numéro + Voie)" ng-required="true" ng-model="user.AddInstall">
+                        <input type="text" class="form-control"  name="AddInstall"  placeholder="Adresse (Numéro + Voie)" ng-required="true" ng-model="user.AddInstall">
                         <div ng-messages="userForm.AddInstall.$error" class="has-feedback help-block" ng-show="(userForm.AddInstall.$invalid && userForm.AddInstall.$dirty)" role="alert">
                             <div ng-messages-include="error-messages"></div>
                         </div>
@@ -317,15 +317,15 @@
                     <div>
                         <div class="col-xs-4 col-sm-4">
                             <label class="sr-only">Batiment</label>
-                            <input class="form-control type="text" ng-pattern="" placeholder="Batiment">
+                            <input class="form-control type="text" placeholder="Batiment">
                         </div>
                         <div class="col-xs-4 col-sm-4">
                             <label class="sr-only">Etage</label>
-                            <input class="form-control"  type="text" ng-pattern="" placeholder="Etage">
+                            <input class="form-control"  type="text" placeholder="Etage">
                         </div>
                         <div class="col-xs-4 col-sm-4">
                             <label class="sr-only">Escalier</label>
-                            <input class="form-control"  type="text" ng-pattern="" placeholder="Escalier">
+                            <input class="form-control"  type="text" placeholder="Escalier">
                         </div>
                     </div>
                 </div>
@@ -333,7 +333,7 @@
                 <div class="form-group row" ng-class="{ 'has-error' : userForm.ville.$invalid && !userForm.ville.$pristine }">
                     <div class="col-xs-12" >
                         <label class="sr-only">Ville</label>
-                        <input type="text" class="form-control" name="ville"  ng-pattern="" placeholder="Ville" ng-required="true" ng-model="user.ville">                    
+                        <input type="text" class="form-control" name="ville" placeholder="Ville" ng-required="true" ng-model="user.ville">                    
                         <div ng-messages="userForm.ville.$error" class="has-feedback help-block" ng-show="(userForm.ville.$invalid && userForm.ville.$dirty)" role="alert">
                             <div ng-messages-include="error-messages"></div>
                         </div>
@@ -343,8 +343,8 @@
                 <div class="form-group row" ng-class="{ 'has-error' : userForm.cp.$invalid && !userForm.cp.$pristine }">
                     <div class="col-xs-12" >
                         <label class="sr-only">CP</label>
-                        <input type="text" class="form-control" name="cp"  ng-pattern="" placeholder="Code Postal" ng-required="true" ng-model="user.cp"  minlength="5" maxlength="5" >
-                        <div ng-messages="userForm.cp.$error" class="has-feedback help-block" ng-show="(userForm.cp.$invalid && userForm.cp.$dirty)" role="alert">
+                        <input type="text" class="form-control" name="cp"  ng-pattern="ZIP_REGEXP" placeholder="Code Postal" ng-required="true" ng-model="user.cp"  minlength="5" maxlength="5" >
+                        <div ng-messages="userForm.cp.$error || userForm.cp.number" class="has-feedback help-block" ng-show="(userForm.cp.$invalid && userForm.cp.$dirty)" role="alert">
                             <div ng-messages-include="error-messages"></div>
                         </div>
                     </div>
@@ -353,7 +353,7 @@
                 <div class="form-group row" ng-class="{ 'has-error' : userForm.NumberPto.$invalid && !userForm.NumberPto.$pristine }">
                     <div class="col-xs-12" >
                         <label class="sr-only">Numéro de PTO</label>
-                        <input type="text" class="form-control" name="NumberPto"  ng-pattern="" placeholder="Numéro de prise PTO (Prise de termination optique)" ng-required="true" ng-model="user.NumberPto" minlength="5" maxlength="15" > 
+                        <input type="text" class="form-control" name="NumberPto"  ng-pattern="SIREN_REGEXP" placeholder="Numéro de prise PTO (Prise de termination optique)" ng-required="true" ng-model="user.NumberPto" minlength="5" maxlength="15" > 
                         <div ng-messages="userForm.NumberPto.$error"  class="has-feedback help-block"  ng-show="(userForm.NumberPto.$invalid && userForm.NumberPto.$dirty)" role="alert">
                             <div ng-messages-include="error-messages"></div>
                         </div>

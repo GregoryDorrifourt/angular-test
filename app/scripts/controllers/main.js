@@ -12,14 +12,11 @@
 
   angular.module('angularTestApp')
   .controller('MainCtrl', function($scope) {
-    $scope.reset = function(){
-       /*$scope.firstName = "Toto";
-       $scope.lastName = "Tutu";
-       $scope.email = "tototutu@gmail.com";*/
-       $scope.submitForm = function(isValid) {
-            alert('Fantastiqueeeeeee');
-        };
-    };
 
-    $scope.reset();
+       $scope.submitForm = function() {
+            console.log('Fantastiqueeeeeee');
+        };
+  
  });
+
+  
