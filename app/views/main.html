@@ -3,7 +3,7 @@
 
 <div class="container">
 
-    <form name="form" novalidate>
+    <form name="myform" ng-submit="foo()" novalidate>
         <!-- CONTRACT-->
         <div class="container section-form">
             <div class="title">
@@ -19,8 +19,8 @@
                     
                     <div class="form-group row">
                         <div class="col-xs-12">
-                            <label for="" class="sr-only">Numéro de contrat</label>
-                            <input type="text" class="form-control" name="contrat" placeholder="Numéro de contrat" required>
+                            <label class="sr-only">Numéro de contrat</label>
+                            <input type="text" class="form-control" name="contract" ng-model="contractnumb" placeholder="Numéro de contrat" required>
                         </div>
                     </div>
 
@@ -104,9 +104,10 @@
                     </div>
                     
                     <div class="form-group row">
-                        <div class="col-xs-12">
+                        <div class="col-xs-12" ng-class="">
                             <label for="" class="sr-only">Nom</label>
-                            <input type="text" class="form-control" name="lastname" placeholder="Nom" required>
+                            <input type="text" class="form-control" name="lastname" ng-maxlength="30" placeholder="Nom" required>
+                            <div ng-messages="myform.lastname.$error" ng-messages-include="erreurs.html"></div>
                         </div>  
                     </div>
 
@@ -338,7 +339,7 @@
 
         <div class="row">
             <div class="col-xs-12 col-sm-offset-4 col-sm-4">
-                <button type="submit" class="btn btn-primary">Valider</button>
+                <button type="submit" value="Envoyer" class="btn btn-primary">Valider</button>
             </div>
 
             <div class="col-xs-12">
