@@ -11,12 +11,14 @@
 
 
   angular.module('angularTestApp')
-  .controller('MainCtrl', function($scope) {
-
-       $scope.submitForm = function() {
-            console.log('Fantastiqueeeeeee');
-        };
+  .controller('MainCtrl', ['$scope',
+        function($scope) {
+            $scope.firstTitle = "Contrat" ; 
+            
+            $scope.submitForm = function($valid) {
+                console.log('Fantastiqueeeeeee');
+            };
   
- });
+ }]);
 
   

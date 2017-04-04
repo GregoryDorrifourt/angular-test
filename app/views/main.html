@@ -30,7 +30,7 @@
     <div class="box"></div>
     <div class="container">
         <div class="marketing">
-            <h4>Contrat</h4>
+            <h4>{{firstTitle}}</h4>
             <hr />
         </div>
         <div class="row">
@@ -75,7 +75,7 @@
                     <div class="col-xs-12" >
                         <label class="sr-only">Date de signature</label>
                         <input type="text" class="form-control" name="DateSignup"  minlength="10" maxlength="10" ng-pattern="PATTERNS.FRENCH_SIMPLE_DATE_REGEXP" placeholder="Date de signature du contrat (JJ/MM/AAAA)" ng-required="true" ng-model="user.DateSignup">
-                        <div ng-messages="userForm.DateSignup.$error || userForm.DateSignup.number" class="has-feedback help-block" ng-show="(userForm.DateSignup.$invalid && userForm.DateSignup.$dirty)" role="alert">
+                        <div ng-messages="userForm.DateSignup.$error" class="has-feedback help-block" ng-show="(userForm.DateSignup.$invalid && userForm.DateSignup.$dirty)" role="alert">
                             <div ng-messages-include="error-messages"></div>
                         </div>
                     </div>
@@ -160,11 +160,11 @@
                 <div class="form-group row" ng-class="{ 'has-error' : userForm.BirthDate.$invalid && !userForm.BirthDate.$pristine }">
                     <div class="col-xs-12" >
                         <label class="sr-only">Date de naissance</label>
-                        <input type="text" class="form-control" name="BirthDate"  placeholder="Date de naissance (08/08/1983)" ng-required="true" ng-model="user.BirthDate">
-                    </div>
-                    <div ng-messages="userForm.BirthDate.$error || userForm.BirthDate.number" class="has-feedback help-block" ng-show="(userForm.BirthDate.$invalid && userForm.BirthDate.$dirty)" role="alert">
+                        <input type="text" class="form-control" name="BirthDate"   minlength="10" maxlength="10"  placeholder="Date de naissance (08/08/1983)" ng-required="true" ng-model="user.BirthDate">
+                        <div ng-messages="userForm.BirthDate.$error" class="has-feedback help-block" ng-show="(userForm.BirthDate.$invalid && userForm.BirthDate.$dirty)" role="alert">
                             <div ng-messages-include="error-messages"></div>
                         </div>
+                    </div>
                 </div>
 
                 <div class="form-group row" ng-class="{ 'has-error' : userForm.Dpt.$invalid && !userForm.Dpt.$pristine }">
@@ -182,7 +182,7 @@
                         <div class="col-xs-12" >
                             <label class="sr-only">Téléphone Mobile</label>
                             <input type="text" class="form-control" name="mobile"  ng-pattern="PATTERNS.PHONE_REGEXP" placeholder="Téléphone mobile" ng-required="true" ng-model="user.mobile" minlength="10" maxlength="10">
-                            <div ng-messages="userForm.mobile.$error || userForm.mobile.number" class="has-feedback help-block" ng-show="(userForm.mobile.$invalid && userForm.mobile.$dirty)" role="alert">
+                            <div ng-messages="userForm.mobile.$error" class="has-feedback help-block" ng-show="(userForm.mobile.$invalid && userForm.mobile.$dirty)" role="alert">
                                 <div ng-messages-include="error-messages"></div>
                             </div>
                         </div>
@@ -192,7 +192,7 @@
                         <div class="col-xs-12" >
                         <label class="sr-only">Téléphone Fixe</label>
                             <input type="text" class="form-control" name="fixe"  ng-pattern="PATTERNS.PHONE_REGEXP" placeholder="Téléphone fixe" ng-required="true" ng-model="user.fixe" minlength="10" maxlength="10">
-                            <div ng-messages="userForm.fixe.$error  || userForm.fixe.number" class="has-feedback help-block" ng-show="(userForm.fixe.$invalid && userForm.fixe.$dirty)" role="alert">
+                            <div ng-messages="userForm.fixe.$error" class="has-feedback help-block" ng-show="(userForm.fixe.$invalid && userForm.fixe.$dirty)" role="alert">
                                 <div ng-messages-include="error-messages"></div>
                             </div>
                         </div>
@@ -222,7 +222,7 @@
                         <div class="col-xs-12" >
                             <label class="sr-only">Numéro ID</label>
                             <input type="text" class="form-control" name="numberId"  placeholder="Numéro de la pièce d'identité" ng-required="true" ng-model="user.numberId" minlength="9">
-                            <div ng-messages="userForm.numberId.$error || userForm.numberId.minlength || userForm.numberId.number" class="has-feedback help-block" ng-show="(userForm.numberId.$invalid && userForm.numberId.$dirty)" role="alert">
+                            <div ng-messages="userForm.numberId.$error" class="has-feedback help-block" ng-show="(userForm.numberId.$invalid && userForm.numberId.$dirty)" role="alert">
                                 <div ng-messages-include="error-messages"></div>
                             </div>
                         </div>
@@ -269,8 +269,8 @@
                     <div class="col-xs-12" >
                         <label class="sr-only">Date de portage</label>
                          <input type="text" class="form-control" name="DatePortage"  placeholder="Date de portage de ma ligne vers mon nouveau numéro" ng-required="true" ng-model="user.DatePortage">
-                        <div ng-messages="userForm.DatePortage.$error" class="has-feedback help-block" ng-show="(userForm.DatePortage.$invalid && userForm.DatePortage.$dirty)" role="alert">
-                            <div ng-messages-include="error-messages || userForm.DatePortage.number"></div>
+                        <div ng-messages="userForm.DatePortage.$error" class="has-feedback help-block" ng-show="(userForm.DatePortage.$invalid && userForm.DatePortage.$dirty)"  role="alert">
+                            <div ng-messages-include="error-messages"></div>
                         </div>
                     </div>
                 </div>

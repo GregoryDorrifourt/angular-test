@@ -1,5 +1,5 @@
 'use strict';
-angular.module('base').
+angular.module('angularTestApp').
 service('formPatterns', [function() {
    
     this.ALPHANUM = RegExp('([a-zA-Z0-9])');
@@ -14,5 +14,4 @@ service('formPatterns', [function() {
     this.NAME_REGEXP = /^[a-zA-Z-'` ŠšÐdŽžCcÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÑÒÓÔÕÖØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýþÿRr]+$/;
     this.ZIP_REGEXP = /^[0-9]{5}$/;
     this.SIREN_REGEXP = /^[0-9]{9}$/;
-
 }]);
