@@ -3,7 +3,7 @@
 
 <div class="container">
 
-    <form name="myform" ng-submit="foo()" novalidate>
+    <form name="userForm" ng-submit="submitForm(userForm.$valid)" novalidate>
         <!-- CONTRACT-->
         <div class="container section-form">
             <div class="title">
@@ -38,10 +38,13 @@
                         </div>
                     </div>
 
-                    <div class="form-group row">
+                    <div class="form-group row" ng-class="{ 'has-error' : userForm.username.$invalid && !userForm.username.$pristine }">
                         <div class="col-xs-12">
-                            <label for="" class="sr-only">Identifiant vendeur</label>
-                            <input type="text" class="form-control" name="identify" placeholder="Identifiant vendeur" required>
+                            <label for="" class="sr-only">Identifiant</label>
+                            <input type="text" class="form-control" name="username" ng-model="user.name" ng-minlength="3"  ng-maxlength="10" placeholder="Identifiant" required>
+
+                            <p ng-show="userForm.username.$error.minlength" class="help-block">Votre identifiant est trop court</p>
+                            <p ng-show="userForm.username.$error.maxlength" class="help-block">Votre identifiant est trop long</p>
                         </div>
                     </div>
 
@@ -103,18 +106,21 @@
                         </div>
                     </div>
                     
-                    <div class="form-group row">
-                        <div class="col-xs-12" ng-class="">
+                    <div class="form-group row" ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }">
+                        <div class="col-xs-12">
                             <label for="" class="sr-only">Nom</label>
-                            <input type="text" class="form-control" name="lastname" ng-maxlength="30" placeholder="Nom" required>
-                            <div ng-messages="myform.lastname.$error" ng-messages-include="erreurs.html"></div>
+                            <input type="text" class="form-control" name="name" ng-model="name" placeholder="Nom" required>
+
+                            <p ng-show="userForm.name.$invalid && !userForm.name.$pristine" class="help-block">Champ obligatoire</p>
                         </div>  
                     </div>
 
-                    <div class="form-group row">
+                    <div class="form-group row" ng-class="{ 'has-error' : userForm.firstname.$invalid && !userForm.firstname.$pristine }">
                         <div class="col-xs-12">
                             <label for="" class="sr-only">Prénom</label>
-                            <input type="text" class="form-control" name="firstname" placeholder="Prénom" required>
+                            <input type="text" class="form-control" name="firstname" ng-model="firstname" placeholder="Prénom" required>
+
+                            <p ng-show="userForm.firstname.$invalid && !userForm.firstname.$pristine" class="help-block">Champ obligatoire</p>
                         </div>        
                     </div>
 
@@ -158,10 +164,12 @@
                         </div>
                     </div>
 
-                    <div class="form-group margin-b row">
+                    <div class="form-group margin-b row" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
                         <div class="col-xs-12">
-                            <label for="" class="sr-only">Email de contact</label>
-                            <input type="email" class="form-control" name="email" placeholder="Email de contact" required>
+                            <label for="" class="sr-only">Email</label>
+                            <input type="email" class="form-control" name="email" ng-model="email" placeholder="Email de contact">
+
+                            <p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">Entrez un email valide</p>
                         </div>
                     </div>
 
@@ -336,10 +344,11 @@
                 </div>
             </div>
         </div>
-
+        
+        <!-- SUBMIT BUTTON -->
         <div class="row">
             <div class="col-xs-12 col-sm-offset-4 col-sm-4">
-                <button type="submit" value="Envoyer" class="btn btn-primary">Valider</button>
+                <button type="submit" value="Envoyer" class="btn btn-primary" ng-disabled="userForm.$invalid">Valider</button>
             </div>
 
             <div class="col-xs-12">
