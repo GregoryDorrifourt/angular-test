@@ -23,5 +23,4 @@ var myApp = angular.module('angularTestApp');
 	    	}
 
 	  	};
-
     });
