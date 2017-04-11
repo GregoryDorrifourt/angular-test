@@ -3,6 +3,8 @@
 
 <div class="container">
 
+    <pre style="position:fixed; left:20px; top:0; text-align:left; width: 300px;">user = {{user | json}}</pre>
+
     <form name="userForm" ng-submit="submitForm(userForm.$valid)" novalidate>
         <!-- CONTRACT-->
         <div class="container section-form">
@@ -20,30 +22,32 @@
                     <div class="form-group row" ng-class="{ 'has-error' : userForm.contract.$invalid && !userForm.contract.$pristine }">
                         <div class="col-xs-12">
                             <label class="sr-only">Numéro de contrat</label>
-                            <input type="text" class="form-control" name="contract" ng-model="user.contract" placeholder="Numéro de contrat" required>
+                            <input type="text" class="form-control" name="contract" ng-model="user.contract" placeholder="Numéro de contrat" ng-pattern="formPatterns.NUMBER" required>
 
                             <p ng-show="userForm.contract.$invalid && !userForm.contract.$pristine" class="help-block">Champ obligatoire</p>
                         </div>
                     </div>
 
-                    <div class="form-group row">
+                    <div class="form-group row" ng-class="{ 'has-error' : userForm.society.$invalid && !userForm.society.$pristine }">
                         <div class="col-xs-12">
                             <label for="" class="sr-only">Example select</label>
-                            <select class="form-control list-field" name="name_society">
+                            <select class="form-control list-field" required>
                                 <option selected>-- Nom de la société --</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
+                                <option value="1">Bouygues Telecom</option>
+                                <option value="2">Digitaweb</option>
+                                <option value="3">Suza International</option>
+                                <option value="4">Photopointcom</option>
+                                <option value="5">Smith</option>
                             </select>
+
+                            <p ng-show="userForm.society.$invalid && !userForm.society.$pristine" class="help-block">Champ obligatoire</p>
                         </div>
                     </div>
 
                     <div class="form-group row" ng-class="{ 'has-error' : userForm.username.$invalid && !userForm.username.$pristine }">
                         <div class="col-xs-12">
                             <label for="" class="sr-only">Identifiant</label>
-                            <input type="text" class="form-control" name="username" ng-model="user.username" ng-minlength="3"  ng-maxlength="10" placeholder="Identifiant" required>
+                            <input type="text" class="form-control" name="username" ng-model="user.username" ng-minlength="3"  ng-maxlength="10" placeholder="Identifiant" ng-pattern="formPatterns.ALPHANUM" required>
 
                             <p ng-show="userForm.username.$error.minlength" class="help-block">Votre identifiant est trop court</p>
                             <p ng-show="userForm.username.$error.maxlength" class="help-block">Votre identifiant est trop long</p>
@@ -52,10 +56,10 @@
 
                     <div class="form-group row" ng-class="{ 'has-error' : userForm.date_sign.$invalid && !userForm.date_sign.$pristine }">
                         <div class="col-xs-12">
-                            <label for="" class="sr-only">Date de signature du contrat</label>
+                            <label class="sr-only">Date de signature du contrat</label>
                             <input type="text" class="form-control" name="date_sign" ng-model="user.date_sign" placeholder="Date de signature du contrat (JJ/MM/AAAA)" required>
 
-                            <p ng-show="userForm.date_sign.$invalid && !userForm.date_sign.$pristine" class="help-block">Choisir une date</p>
+                            <p ng-show="userForm.date_sign.$invalid && !userForm.date_sign.$pristine" class="help-block">Champ obligatoire</p>
                         </div>
                     </div>
                 </div>
@@ -113,7 +117,7 @@
                     <div class="form-group row" ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }">
                         <div class="col-xs-12">
                             <label for="" class="sr-only">Nom</label>
-                            <input type="text" class="form-control" name="name" ng-model="user.name" placeholder="Nom" required>
+                            <input type="text" class="form-control" name="name" ng-model="user.name" placeholder="Nom" ng-pattern="formPatterns.NAME_REGEXP" required>
 
                             <p ng-show="userForm.name.$invalid && !userForm.name.$pristine" class="help-block">Champ obligatoire</p>
                         </div>  
@@ -122,7 +126,7 @@
                     <div class="form-group row" ng-class="{ 'has-error' : userForm.firstname.$invalid && !userForm.firstname.$pristine }">
                         <div class="col-xs-12">
                             <label for="" class="sr-only">Prénom</label>
-                            <input type="text" class="form-control" name="firstname" ng-model="user.firstname" placeholder="Prénom" required>
+                            <input type="text" class="form-control" name="firstname" ng-model="user.firstname" placeholder="Prénom" ng-pattern="formPatterns.NAME_REGEXP" required>
 
                             <p ng-show="userForm.firstname.$invalid && !userForm.firstname.$pristine" class="help-block">Champ obligatoire</p>
                         </div>        
@@ -133,7 +137,7 @@
                             <label for="" class="sr-only">Date de naissance</label>
                             <input type="text" class="form-control" name="date_birth" ng-model="user.date_birth" placeholder="Date de naissance (JJ/MM/AAAA)" required>
 
-                            <p ng-show="userForm.date_birth.$invalid && !userForm.date_birt.$pristine" class="help-block">Champ obligatoire</p>
+                            <p ng-show="userForm.date_birth.$invalid && !userForm.date_birth.$pristine" class="help-block">Champ obligatoire</p>
                         </div>
                     </div>
 
@@ -156,42 +160,48 @@
                         </div>
                     </div>
 
-                    <div class="form-group row">
+                    <div class="form-group row" ng-class="{ 'has-error' : userForm.phone_mobile.$invalid && !userForm.phone_mobile.$pristine }">
                         <div class="col-xs-12">
                             <label for="" class="sr-only">Téléphone mobile</label>
-                            <input type="tel" class="form-control" name="phone_mobile" placeholder="Téléphone mobile" >
+                            <input type="tel" class="form-control" name="phone_mobile" ng-model="user.phone_mobile" placeholder="Téléphone mobile" ng-pattern="formPatterns.PHONE_MOB_REGEXP">
+
+                            <p ng-show="userForm.phone_mobile.$invalid && !userForm.phone_mobile.$pristine" class="help-block">Champ obligatoire</p>
                         </div>
                     </div>
 
-                    <div class="form-group row">
+                    <div class="form-group row" ng-class="{ 'has-error' : userForm.phone_fix.$invalid && !userForm.phone_fix.$pristine }">
                         <div class="col-xs-12">
                             <label for="" class="sr-only">Téléphone fixe</label>
-                            <input type="tel" class="form-control" name="phone_fix" placeholder="Téléphone fixe">
+                            <input type="tel" class="form-control" name="phone_fix" ng-model="user.phone_fix" placeholder="Téléphone fixe" ng-pattern="formPatterns.PHONE_REGEXP">
+
+                            <p ng-show="userForm.phone_fix.$invalid && !userForm.phone_fix.$pristine" class="help-block">Champ obligatoire</p>
                         </div>
                     </div>
 
                     <div class="form-group margin-b row" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
                         <div class="col-xs-12">
                             <label for="" class="sr-only">Email</label>
-                            <input type="email" class="form-control" name="email" ng-model="user.email" placeholder="Email de contact">
+                            <input type="email" class="form-control" name="email" ng-model="user.email" placeholder="Email" ng-pattern="formPatterns.EMAIL_REGEXP">
 
-                            <p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">Entrez un email valide</p>
+                            <p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">Email non valide</p>
                         </div>
                     </div>
 
                     <div class="form-group row" ng-class="{ 'has-error' : userForm.identied.$invalid && !userForm.identied.$pristine }">
                         <div class="col-xs-12">
                             <label for="" class="sr-only">Pièce d'identité de l'acheteur</label>
-                            <input type="text" class="form-control" name ="identied" ng-model="user.identied" placeholder="Pièce d'identité de l'acheteur" required>
+                            <input type="text" class="form-control" name ="identied" ng-model="user.identied" placeholder="Pièce d'identité de l'acheteur" ng-pattern="formPatterns.ALPHANUM" required>
 
-                            <p ng-show="userForm.identied.$invalid && !userForm.identied.$pristine" class="help-block">Entrez un email valide</p>
+                            <p ng-show="userForm.identied.$invalid && !userForm.identied.$pristine" class="help-block">Champ obligatoire</p>
                         </div>
                     </div>
 
-                    <div class="form-group row">
+                    <div class="form-group row" ng-class="{ 'has-error' : userForm.identied_numbers.$invalid && !userForm.identied_numbers.$pristine }">
                         <div class="col-xs-12">
                             <label for="" class="sr-only">Numéro de la pièce d'identité</label>
-                            <input type="text" class="form-control" name="identied_numbers" placeholder="Numéro de la pièce d'identité" required>
+                            <input type="text" class="form-control" name="identied_numbers" ng-model="user.identied_numbers" placeholder="Numéro de la pièce d'identité" ng-pattern="formPatterns.NUMBER" required>
+
+                            <p ng-show="userForm.identied_numbers.$invalid && !userForm.identied_numbers.$pristine" class="help-block">Champ obligatoire</p>
                         </div>
                     </div>
                 </div>      
@@ -270,10 +280,12 @@
             <div class="row">
                 <div class="wrapper-form col-xs-12 col-sm-offset-2 col-sm-8">
                     
-                    <div class="form-group row">
+                    <div class="form-group row" ng-class="{ 'has-error' : userForm.address.$invalid && !userForm.address.$pristine }">
                         <div class="col-xs-12">
                             <label for="" class="sr-only">N° et voie</label>
-                            <input type="text" class="form-control" name="address" placeholder="N° et voie" required>
+                            <input type="text" class="form-control" name="address" ng-model="user.address" placeholder="N° et voie" ng-pattern="formPatterns.ALPHANUM" required>
+
+                            <p ng-show="userForm.address.$invalid && !userForm.address.$pristine" class="help-block">Champ obligatoire</p>
                         </div>  
                     </div>
 
@@ -294,24 +306,30 @@
                         </div>  
                     </div>
 
-                    <div class="form-group row">
-                        <div class="col-xs-12">
-                            <label for="" class="sr-only">Ville</label>
-                            <input type="text" class="form-control" name="city" placeholder="Ville" required>
-                        </div>  
-                    </div>
-
-                    <div class="form-group row">
+                    <div class="form-group row" ng-class="{ 'has-error' : userForm.postal_code.$invalid && !userForm.postal_code.$pristine }">
                         <div class="col-xs-12">
                             <label for="" class="sr-only">Code postale</label>
-                            <input type="text" class="form-control" name="postal_code" placeholder="Code postale" required>
+                            <input type="text" class="form-control" name="postal_code" ng-model="user.postal_code" placeholder="Code postale" ng-pattern="formPatterns.NUMBER" required>
+
+                            <p ng-show="userForm.postal_code.$invalid && !userForm.postal_code.$pristine" class="help-block">Champ obligatoire</p>
                         </div>  
                     </div>
 
-                    <div class="form-group row">
+                    <div class="form-group row" ng-class="{ 'has-error' : userForm.city.$invalid && !userForm.city.$pristine }">
+                        <div class="col-xs-12">
+                            <label for="" class="sr-only">Ville</label>
+                            <input type="text" class="form-control" name="city" ng-model="user.city" placeholder="Ville" ng-pattern="formPatterns.NAME_REGEXP" required>
+
+                            <p ng-show="userForm.city.$invalid && !userForm.city.$pristine" class="help-block">Champ obligatoire</p>
+                        </div>  
+                    </div>
+
+                    <div class="form-group row" ng-class="{ 'has-error' : userForm.numbers_pto.$invalid && !userForm.numbers_pto.$pristine }">
                         <div class="col-xs-12">
                             <label for="" class="sr-only">Numéro de prise PTO</label>
-                            <input type="text" class="form-control" name="numbers_pto" placeholder="Numéro de prise PTO" required>
+                            <input type="text" class="form-control" name="numbers_pto" ng-model="user.numbers_pto" placeholder="Numéro de prise PTO" ng-pattern="formPatterns.NUMBER" required>
+
+                            <p ng-show="userForm.numbers_pto.$invalid && !userForm.numbers_pto.$pristine" class="help-block">Champ obligatoire</p>
                         </div>  
                     </div>
                 </div>

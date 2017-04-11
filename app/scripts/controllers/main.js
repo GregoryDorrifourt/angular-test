@@ -8,19 +8,24 @@
  * Controller of the angularTestApp
  */
 
-// create angular app
+// creer application
 var myApp = angular.module('angularTestApp');
+
 	
-	// create angular controller
-	myApp.controller('MainCtrl', function ($scope) {
+// creer controller principal
+myApp.controller('MainCtrl', function ($scope, formPatterns) {
 
-	  	// function to submit the form after all validation has occurred 
-	  	$scope.submitForm = function(isValid) {
+  	// function to submit the form after all validation has occurred 
+  	$scope.submitForm = function(isValid) {
 
-	    	// check to make sure the form is completely valid
-	    	if (isValid) {
-	      		alert('votre formulaire est validé');
-	    	}
+    	// check to make sure the form is completely valid
+    	if (isValid) {
+      		alert('votre formulaire est validé');
+    	}
 
-	  	};
-    });
+  	};
+
+  	// Variable pour faire le lien avec la view
+  	$scope.formPatterns = formPatterns;
+});
+
