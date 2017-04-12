@@ -14,7 +14,8 @@ angular.module('angularTestApp')
     self.PHONE_MOB_REGEXP = /^0[6-7]{1}[0-9]{8}$/;
     self.PWD_REGEXP = RegExp('([^<>"’&]{8,20}$)');
     self.PWDLOGIN_REGEXP = RegExp('([^<>"’&]{4,20}$)');
-    self.FRENCH_SIMPLE_DATE_REGEXP = RegExp('(0[1-9]|[12][0-9]|3[01])[/](0[1-9]|1[012])[/](19|20)[0-9][0-9]$');
+    self.DATE_REGEXP = RegExp('(0[1-9]|[12][0-9]|3[01])[/](0[1-9]|1[012])[/](19|20)[0-9][0-9]$');
+    self.BDAY_REGEXP = RegExp('(0[1-9]|[12][0-9]|3[01])[/](0[1-9]|1[012])[/](19|20)[0-9][0-9]$');
     self.NAME_REGEXP = /^[a-zA-Z-'` ŠšÐdŽžCcÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÑÒÓÔÕÖØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýþÿRr]+$/;
     self.ZIP_REGEXP = /^[0-9]{5}$/;
     self.SIREN_REGEXP = /^[0-9]{9}$/;

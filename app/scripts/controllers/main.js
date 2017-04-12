@@ -8,24 +8,56 @@
  * Controller of the angularTestApp
  */
 
-// creer application
+// Creer application
 var myApp = angular.module('angularTestApp');
 
 	
-// creer controller principal
+// Creer controller principal
 myApp.controller('MainCtrl', function ($scope, formPatterns) {
 
-  	// function to submit the form after all validation has occurred 
+  	// Function to submit the form after all validation has occurred 
   	$scope.submitForm = function(isValid) {
-
-    	// check to make sure the form is completely valid
+  		
+    	// Check to make sure the form is completely valid
     	if (isValid) {
       		alert('votre formulaire est validé');
     	}
-
   	};
 
-  	// Variable pour faire le lien avec la view
+	/* Variable pour faire le lien avec la view et le patterns
+	* ===========================================================
+	*/
+
   	$scope.formPatterns = formPatterns;
+
+
+  	/* Agencies
+  	* ===========================================================
+  	*/
+
+  	$scope.agencies = [
+    	{name:'Bouygues Telecom',code:'01'},
+      	{name:'Digitaweb', code:'02'},
+      	{name:'Suza International', code:'03'},
+      	{name:'Photopointcom', code:'04'}
+    ];
+
+
+    /* Department
+  	* ===========================================================
+  	*/
+
+    $scope.departments = [
+      {name:'Ain',code:'01'},
+      {name:'Aisne', code:'02'},
+      {name:'Allier', code:'03'},
+      {name:'Alpes-de-Haute-Provence', code:'04'},
+      {name:'Hautes-Alpes', code:'05'},
+      {name:'Alpes-Maritimes', code:'06'},
+      {name:'Ardèche', code:'07'},
+      {name:'Ardennes', code:'08'},
+      {name:'Ariège', code:'09'},
+      {name:'Aube', code:'10'}
+    ];  
 });
 
