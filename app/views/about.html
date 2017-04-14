@@ -60,7 +60,13 @@
 			</p>
 		</div>
 	</div>
-
+	<hr>
+	<h2>Exemple de ng Required</h2>
+	<div>
+		<p></p>
+		<input type="text" name="test" ng-model="user.test" ng-required="!user.test2">
+		<input type="text" name="test2" ng-model="user.test2" ng-required="!user.test">
+	</div>
 </div>
 
 

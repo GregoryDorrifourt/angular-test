@@ -24,14 +24,16 @@ myApp.controller('MainCtrl', function ($scope, formPatterns) {
     	}
   	};
 
-	/* Variable pour faire le lien avec la view et le patterns
+
+	/* Variables
 	* ===========================================================
 	*/
 
+	// fait le lien avec la view et le patterns
   	$scope.formPatterns = formPatterns;
 
 
-  	/* Agencies
+  	/* Agencies (select)
   	* ===========================================================
   	*/
 
@@ -43,7 +45,7 @@ myApp.controller('MainCtrl', function ($scope, formPatterns) {
     ];
 
 
-    /* Department
+    /* Department (select)
   	* ===========================================================
   	*/
 
