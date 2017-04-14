@@ -10,7 +10,7 @@
 
 <div class="container">
 
-    <pre style="position:fixed; left:20px; top:0; text-align:left; width: 300px; height: 500px;">user = {{userForm.date_ligne  | json}}</pre>
+    <pre style="position:fixed; left:20px; top:0; text-align:left; width: 300px; height: 500px;">user = {{user | json}}</pre>
 
     <form name="userForm" ng-submit="submitForm(userForm.$valid)" novalidate>
         <!-- CONTRACT-->
@@ -167,7 +167,7 @@
                     <div class="form-group margin-b row" ng-class="{ 'has-error' : userForm.department.$invalid && (userForm.department.$dirty || userForm.$submitted)}">
                         <div class="col-xs-12">
                             <label class="sr-only">Département de naissance</label>
-                            <select class="form-control list-field" name="department" ng-model="user.department" ng-options="item.code as (item.code+' - '+item.name) for item in departments" required>
+                            <select class="form-control list-field" name="department" ng-model="user.department" ng-options="(item.code+' - '+item.name) as (item.code+' - '+item.name) for item in departments" required>
                                 <option value="">-- Département de naissance --</option>
                             </select>
 
@@ -271,7 +271,7 @@
 
                         </div>
                     </div>
-                <!-- ng-required="!user.phone_mobile" -->
+
                     <div class="form-group row ng-hide" ng-show="user.option_phone == 'get'" ng-class="{ 'has-error' : userForm.date_ligne.$invalid && (userForm.date_ligne.$dirty || userForm.$submitted)}">
                         <div class="col-xs-12">
                             <label><small>Date de portage de ma ligne vers mon nouveau numéro</small></label>
@@ -283,14 +283,14 @@
 
                             <div class="form-check">
                                 <label class="form-check-label">
-                                    <input class="form-check-input" type="checkbox" name="checkbox_inscrip">
+                                    <input class="form-check-input" type="checkbox" name="checkbox_inscrip" ng-model="user.inscrip">
                                     Inscription à l'Annuaire Universelle Fixe
                                 </label>
                             </div>
                             
                             <div class="form-check">
                                 <label class="form-check-label">
-                                    <input class="form-check-input" type="checkbox" name="checkbox_activate">
+                                    <input class="form-check-input" type="checkbox" name="checkbox_activate" ng-model="user.activate">
                                     Activation contrôle parentale
                                 </label>
                             </div>
