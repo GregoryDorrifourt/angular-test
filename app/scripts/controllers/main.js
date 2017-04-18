@@ -32,10 +32,13 @@ myApp.controller('MainCtrl', function ($scope, formPatterns) {
 	// fait le lien avec la view et le patterns
   	$scope.formPatterns = formPatterns;
 
+    // template messages d'erreurs
+    $scope.msg_error = 'partial/messages.html';
 
-  	/* Agencies (select)
-  	* ===========================================================
-  	*/
+
+	/* Agencies (select)
+	* ===========================================================
+	*/
 
   	$scope.agencies = [
     	{name:'Bouygues Telecom',code:'01'},
@@ -46,8 +49,8 @@ myApp.controller('MainCtrl', function ($scope, formPatterns) {
 
 
     /* Department (select)
-  	* ===========================================================
-  	*/
+	* ===========================================================
+	*/
 
     $scope.departments = [
       {name:'Ain',code:'01'},

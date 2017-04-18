@@ -1,9 +1,7 @@
-<!-- <script type="text/template" id="message.html">
-    <div ng-message="required">Champ requis</div>
-    <div ng-message="minlength">Valeur trop courte</div>
-    <div ng-message="maxlength">Valeur trop longue</div>
-    <div ng-message="email">E-mail non valide</div>
-    <div ng-message="number">Chiffres entre 0 et 9</div>
+<!-- <script type="text/ng-template" id="error-messages">
+    <div ng-message="required">Ce champ est requis</div>
+    <div ng-message="pattern">Format incorrect</div>
+    <div ng-message="minlength">Format incorrect</div>
 </script> -->
 
 <h2>Passer  à la fibre Bouygues Telecom</h2>
@@ -31,8 +29,8 @@
                             <label class="sr-only">Numéro de contrat</label>
                             <input type="text" class="form-control" name="contract" ng-model="user.contract" ng-minlength="8"  ng-maxlength="8" placeholder="Numéro de contrat" ng-pattern="formPatterns.NUMBER" required>
 
-                            <div class="help-block" ng-messages="userForm.contract.$error" ng-show="userForm.contract.$invalid && (userForm.contract.$dirty || userForm.contract.$invalid) && userForm.$submitted">
-                                <div ng-messages-include="partial/messages.html"></div>
+                            <div class="help-block" id="message" ng-messages="userForm.contract.$error" ng-show="userForm.contract.$invalid && (userForm.contract.$dirty || userForm.contract.$invalid) && userForm.$submitted">
+                                <div ng-messages-include="{{msg_error}}"></div>
                             </div>
                         </div>
                     </div>
@@ -45,7 +43,7 @@
                             </select>
 
                             <div class="help-block" ng-messages="userForm.agencies.$error" ng-show="userForm.agencies.$invalid && (userForm.agencies.$dirty || userForm.agencies.$invalid) && userForm.$submitted">
-                                <div ng-messages-include="partial/messages.html"></div>
+                                <div ng-messages-include="{{msg_error}}"></div>
                             </div>
                         </div>
                     </div>
@@ -56,7 +54,7 @@
                             <input type="text" class="form-control" name="username" ng-model="user.username" ng-minlength="3"  ng-maxlength="10" placeholder="Identifiant" ng-pattern="formPatterns.ALPHANUM" required>
 
                             <div class="help-block" ng-messages="userForm.username.$error" ng-show="userForm.username.$invalid && (userForm.username.$dirty || userForm.username.$invalid) && userForm.$submitted">
-                                <div ng-messages-include="partial/messages.html"></div>
+                                <div ng-messages-include="{{msg_error}}"></div>
                             </div>
                         </div>
                     </div>
@@ -64,10 +62,10 @@
                     <div class="form-group row" ng-class="{ 'has-error' : userForm.date_sign.$invalid && (userForm.date_sign.$dirty || userForm.$submitted)}">
                         <div class="col-xs-12">
                             <label><small>Date de signature du contrat</small></label>
-                            <input type="text" class="form-control" name="date_sign" ng-model="user.date_sign" placeholder="JJ/MM/AAAA" ui-mask="99/99/9999" ui-mask-placeholder ng-pattern="formPatterns.DATE_REGEXP" required>
+                            <input type="text" class="form-control" name="date_sign" ng-model="user.date_sign" ui-mask="99/99/9999" ui-mask-placeholder="JJ/MM/AAAA" ng-pattern="formPatterns.DATE_REGEXP" required>
 
                             <div class="help-block" ng-messages="userForm.date_sign.$error" ng-show="userForm.date_sign.$invalid && (userForm.date_sign.$dirty || userForm.date_sign.$invalid) && userForm.$submitted">
-                                <div ng-messages-include="partial/messages.html"></div>
+                                <div ng-messages-include="{{msg_error}}"></div>
                             </div>
                         </div>
                     </div>
@@ -105,7 +103,7 @@
                             </div>
 
                             <div class="help-block" ng-messages="userForm.client.$error" ng-show="userForm.client.$invalid && userForm.$submitted">
-                                <div ng-messages-include="partial/messages.html"></div>
+                                <div ng-messages-include="{{msg_error}}"></div>
                             </div>
                         </div>
                     </div>
@@ -126,7 +124,7 @@
                             </div>
 
                             <div class="help-block" ng-messages="userForm.prefix.$error" ng-show="userForm.prefix.$invalid && userForm.$submitted">
-                                <div ng-messages-include="partial/messages.html"></div>
+                                <div ng-messages-include="{{msg_error}}"></div>
                             </div>
                         </div>
                     </div>
@@ -137,7 +135,7 @@
                             <input type="text" class="form-control" name="name" ng-model="user.name" placeholder="Nom" ng-pattern="formPatterns.NAME_REGEXP" required>
 
                             <div class="help-block" ng-messages="userForm.name.$error" ng-show="userForm.name.$invalid && (userForm.name.$dirty || userForm.name.$invalid) && userForm.$submitted">
-                                <div ng-messages-include="partial/messages.html"></div>
+                                <div ng-messages-include="{{msg_error}}"></div>
                             </div>
                         </div>  
                     </div>
@@ -148,7 +146,7 @@
                             <input type="text" class="form-control" name="firstname" ng-model="user.firstname" placeholder="Prénom" ng-pattern="formPatterns.NAME_REGEXP" required>
 
                             <div class="help-block" ng-messages="userForm.firstname.$error" ng-show="userForm.firstname.$invalid && (userForm.firstname.$dirty || userForm.firstname.$invalid) && userForm.$submitted">
-                                <div ng-messages-include="partial/messages.html"></div>
+                                <div ng-messages-include="{{msg_error}}"></div>
                             </div>
                         </div>        
                     </div>
@@ -156,10 +154,10 @@
                     <div class="form-group row" ng-class="{ 'has-error' : userForm.date_birth.$invalid && (userForm.date_birth.$dirty || userForm.$submitted)}">
                         <div class="col-xs-12">
                             <label><small>Date de naissance</small></label>
-                            <input type="text" class="form-control" name="date_birth" ng-model="user.date_birth" placeholder="JJ/MM/AAAA" ng-pattern="formPatterns.DATE_REGEXP" required>
+                            <input type="text" class="form-control" name="date_birth" ng-model="user.date_birth" ui-mask="99/99/9999" ui-mask-placeholder="JJ/MM/AAAA" ng-pattern="formPatterns.BDAY_REGEXP" required>
 
                             <div class="help-block" ng-messages="userForm.date_birth.$error" ng-show="userForm.date_birth.$invalid && (userForm.date_birth.$dirty || userForm.date_birth.$invalid) && userForm.$submitted">
-                                <div ng-messages-include="partial/messages.html"></div>
+                                <div ng-messages-include="{{msg_error}}"></div>
                             </div>
                         </div>
                     </div>
@@ -172,7 +170,7 @@
                             </select>
 
                             <div class="help-block" ng-messages="userForm.department.$error" ng-show="userForm.department.$invalid && (userForm.department.$dirty || userForm.department.$invalid) && userForm.$submitted">
-                                <div ng-messages-include="partial/messages.html"></div>
+                                <div ng-messages-include="{{msg_error}}"></div>
                             </div>
                         </div>
                     </div>
@@ -183,7 +181,7 @@
                             <input type="tel" class="form-control" name="phone_mobile" ng-model="user.phone_mobile" placeholder="Téléphone mobile" ng-pattern="formPatterns.PHONE_MOB_REGEXP" ng-required="!user.phone_fix">
 
                             <div class="help-block" ng-messages="userForm.phone_mobile.$error" ng-show="userForm.phone_mobile.$invalid && (userForm.phone_mobile.$dirty || userForm.phone_mobile.$invalid) && userForm.$submitted">
-                                <div ng-messages-include="partial/messages.html"></div>
+                                <div ng-messages-include="{{msg_error}}"></div>
                             </div>
                         </div>
                     </div>
@@ -194,7 +192,7 @@
                             <input type="tel" class="form-control" name="phone_fix" ng-model="user.phone_fix" placeholder="Téléphone fixe" ng-pattern="formPatterns.PHONE_REGEXP" ng-required="!user.phone_mobile">
 
                             <div class="help-block" ng-messages="userForm.phone_fix.$error" ng-show="userForm.phone_fix.$invalid && (userForm.phone_fix.$dirty || userForm.phone_fix.$invalid) && userForm.$submitted">
-                                <div ng-messages-include="partial/messages.html"></div>
+                                <div ng-messages-include="{{msg_error}}"></div>
                             </div>
                         </div>
                     </div>
@@ -205,7 +203,7 @@
                             <input type="email" class="form-control" name="email" ng-model="user.email" placeholder="Email" ng-pattern="formPatterns.EMAIL_REGEXP" required>
 
                             <div class="help-block" ng-messages="userForm.email.$error" ng-show="userForm.email.$invalid && (userForm.email.$dirty || userForm.email.$invalid) && userForm.$submitted">
-                                <div ng-messages-include="partial/messages.html"></div>
+                                <div ng-messages-include="{{msg_error}}"></div>
                             </div>
                         </div>
                     </div>
@@ -216,7 +214,7 @@
                             <input type="text" class="form-control" name ="identied" ng-model="user.identied" placeholder="Pièce d'identité de l'acheteur" ng-pattern="formPatterns.ALPHANUM" required>
 
                             <div class="help-block" ng-messages="userForm.identied.$error" ng-show="userForm.identied.$invalid && (userForm.identied.$dirty || userForm.identied.$invalid) && userForm.$submitted">
-                                <div ng-messages-include="partial/messages.html"></div>
+                                <div ng-messages-include="{{msg_error}}"></div>
                             </div>
                         </div>
                     </div>
@@ -227,7 +225,7 @@
                             <input type="text" class="form-control" name="identied_numbers" ng-model="user.identied_numbers" placeholder="Numéro de la pièce d'identité" ng-pattern="formPatterns.NUMBER" required>
 
                             <div class="help-block" ng-messages="userForm.identied_numbers.$error" ng-show="userForm.identied_numbers.$invalid && (userForm.identied_numbers.$dirty || userForm.identied_numbers.$invalid) && userForm.$submitted">
-                                <div ng-messages-include="partial/messages.html"></div>
+                                <div ng-messages-include="{{msg_error}}"></div>
                             </div>
                         </div>
                     </div>
@@ -266,7 +264,7 @@
                             </div>
 
                             <div class="help-block" ng-messages="userForm.option_phone.$error" ng-show="userForm.option_phone.$invalid && userForm.$submitted">
-                                <div ng-messages-include="partial/messages.html"></div>
+                                <div ng-messages-include="{{msg_error}}"></div>
                             </div>
 
                         </div>
@@ -275,10 +273,10 @@
                     <div class="form-group row ng-hide" ng-show="user.option_phone == 'get'" ng-class="{ 'has-error' : userForm.date_ligne.$invalid && (userForm.date_ligne.$dirty || userForm.$submitted)}">
                         <div class="col-xs-12">
                             <label><small>Date de portage de ma ligne vers mon nouveau numéro</small></label>
-                            <input type="text" class="form-control" name="date_ligne" ng-model="user.date_ligne" placeholder="JJ/MM/AAAA" ng-pattern="formPatterns.DATE_REGEXP" ng-required="user.option_phone == 'get'">
+                            <input type="text" class="form-control" name="date_ligne" ng-model="user.date_ligne" ui-mask="99/99/9999" ui-mask-placeholder="JJ/MM/AAAA" ng-pattern="formPatterns.DATE_REGEXP" ng-required="user.option_phone == 'get'">
 
                             <div class="help-block" ng-messages="userForm.date_ligne.$error" ng-show="userForm.date_ligne.$invalid && userForm.$submitted">
-                                <div ng-messages-include="partial/messages.html"></div>
+                                <div ng-messages-include="{{msg_error}}"></div>
                             </div>
 
                             <div class="form-check">
@@ -320,7 +318,7 @@
                             <input type="text" class="form-control" name="address" ng-model="user.address" placeholder="N° et voie" ng-pattern="formPatterns.ALPHANUM" required>
 
                             <div class="help-block" ng-messages="userForm.address.$error" ng-show="userForm.address.$invalid && (userForm.address.$dirty || userForm.address.$invalid) && userForm.$submitted">
-                                <div ng-messages-include="partial/messages.html"></div>
+                                <div ng-messages-include="{{msg_error}}"></div>
                             </div>
                         </div>  
                     </div>
@@ -348,7 +346,7 @@
                             <input type="text" class="form-control" name="postal" ng-model="user.postal" placeholder="Code postale" ng-pattern="formPatterns.NUMBER" required>
 
                             <div class="help-block" ng-messages="userForm.postal.$error" ng-show="userForm.postal.$invalid && (userForm.postal.$dirty || userForm.postal.$invalid) && userForm.$submitted">
-                                <div ng-messages-include="partial/messages.html"></div>
+                                <div ng-messages-include="{{msg_error}}"></div>
                             </div>
                         </div>  
                     </div>
@@ -359,7 +357,7 @@
                             <input type="text" class="form-control" name="city" ng-model="user.city" placeholder="Ville" ng-pattern="formPatterns.NAME_REGEXP" required>
 
                             <div class="help-block" ng-messages="userForm.city.$error" ng-show="userForm.city.$invalid && (userForm.city.$dirty || userForm.city.$invalid) && userForm.$submitted">
-                                <div ng-messages-include="partial/messages.html"></div>
+                                <div ng-messages-include="{{msg_error}}"></div>
                             </div>
                         </div>  
                     </div>
@@ -370,7 +368,7 @@
                             <input type="text" class="form-control" name="numbers_pto" ng-model="user.numbers_pto" placeholder="Numéro de prise PTO" ng-pattern="formPatterns.NUMBER" required>
 
                             <div class="help-block" ng-messages="userForm.numbers_pto.$error" ng-show="userForm.numbers_pto.$invalid && (userForm.numbers_pto.$dirty || userForm.numbers_pto.$invalid) && userForm.$submitted">
-                                <div ng-messages-include="partial/messages.html"></div>
+                                <div ng-messages-include="{{msg_error}}"></div>
                             </div>
                         </div>  
                     </div>
@@ -409,7 +407,7 @@
                             </div>
 
                             <div class="help-block" ng-messages="userForm.payment.$error" ng-show="userForm.payment.$invalid && userForm.$submitted">
-                                <div ng-messages-include="partial/messages.html"></div>
+                                <div ng-messages-include="{{msg_error}}"></div>
                             </div>
                         </div>
                     </div>

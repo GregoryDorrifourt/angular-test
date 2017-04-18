@@ -18,6 +18,7 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
+    'ui.mask',
   ])
   .config(function ($routeProvider, $locationProvider) {
     $locationProvider.hashPrefix('');
