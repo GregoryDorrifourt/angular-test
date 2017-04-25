@@ -2,8 +2,7 @@
 	<div class="row">
 		<div class="col-xs-12">
 			<h2>Exercice 2</h2>
-			<pre>Je souhaite afficher une liste de fichiers PDF, pouvoir la trier via un champ de 
-			recherche et un menu latéral permettant de les trier par catégorie.
+			<pre>Je souhaite afficher une liste de fichiers PDF, pouvoir la trier via un champ de recherche et un menu latéral permettant de les trier par catégorie.
 
 			Les fichiers sont dans 'files/exercice2/'.
 
@@ -30,9 +29,9 @@
 		<div class="col-xs-12 col-sm-4 section-left">
 			<h2 class="title">Catégories</h2>
 			<ul class="categorie-list">
-				<li class="categorie"><a href="#">Cours</a></li>
-				<li class="categorie"><a href="#">Exercices</a></li>
-				<li class="categorie"><a href="#">Evaluations</a></li>
+				<li class="categorie" ng-repeat="cat in categories" ng-click="setCategory(cat.id)">
+					<a ng-bind="cat.label"></a>
+				</li>
 			</ul>
 		</div>
 
@@ -41,21 +40,21 @@
 
 			<div class="form-group">
                 <div class="input-group">
-                    <input type="text" placeholder="recherche" name="s" class="form-control left-rounded">
+                    <input type="text" class="form-control left-rounded" name="search" ng-model="search" placeholder="recherche">
+
                     <div class="input-group-btn">
                         <button type="submit" class="btn btn-inverse right-rounded">Chercher</button>
                     </div>
                 </div>
             </div>
 
-            <div class="wrapper-files">
+            <div class="wrapper-files" ng-repeat="info in informations | filter:currentCategory | filter:search">
 				<div class="download-file">
-					<h3 class="title-file">Files pdf 1</h3>
+					<h3 class="title-file" ng-bind="info.title"></h3>
 
 					<div class="doc-file">
-						<a href="http://www.emka.fr/wp-content/uploads/2016/03/Betat2009.pdf" download="Non-invasive_blood_pressure_monitoring_in_ambulatory_beagle_dogs.pdf">download fichier PDF
-						</a>
-						<p class="info-categorie">Cours</p>	
+						<a ng-href="{{info.file}}" target="_blank" ng-bind="info.name_file"></a>
+						<p class="info-categorie" ng-bind="info.categorie.label"></p>	
 					</div>
 				</div>
             </div>
