@@ -1,0 +1,143 @@
+.wrapper-list {
+	border-top: 3px solid #F1F1F1;
+	margin: 50px 0;
+
+	.title {
+		
+		border-bottom: 1px solid #006bb3;
+		color: #000;
+		font-weight: 300;
+		margin-bottom: 30px;
+		padding-bottom: 15px;
+	}
+	
+	.section-right {
+		color: $brand-primary;
+		padding: 20px 25px 0;
+	}
+
+	.section-left {
+
+		background-color: #F1F1F1;
+		padding: 20px 25px;
+
+		@media (min-width: $screen-sm) {
+            height: 500px;
+ 		}
+	}
+
+	.categorie-list {
+		list-style: none;
+		margin: 0 0 24px 20px;
+		padding: 0;
+
+		.categorie {
+
+			&.active {
+
+				span {
+					background-color: #006bb3;
+					display: block;
+			    	color: #fff;
+				    padding-right: 0;
+				    padding-left: 16px;
+				}
+			}
+
+			span {
+
+				color: #000;
+			    display: block;
+			    font-size: 16px;
+			    padding: 10px 0;
+			    padding-right: 16px;
+			    transition: all 0.5s;
+			    -webkit-transition: all 0.5s;
+			    -o-transition: all 0.5s;
+
+			    &:hover {
+
+			    	background-color: #006bb3;
+			    	color: #fff;
+				    padding-right: 0;
+				    padding-left: 16px;
+			    }
+			}
+		}
+	}
+
+	.form-group {
+		margin-bottom: 40px;
+
+		.form-control,
+		.btn {
+			height: 50px;
+		}
+
+		.btn {
+
+			background-color: #006bb3;
+			color: #FFF;
+		}
+	}
+
+	.wrapper-files {
+		margin-bottom: 30px;
+
+		.download-file {
+
+		    border: 1px solid #006bb3;
+		    color: #000;
+		    padding: 20px 30px;
+		}
+
+		.title-file {
+
+			font-size: 20px;
+			margin-top: 0;
+		}
+
+		.doc-file {
+			position: relative;
+
+			.info-categorie {
+
+				display: inline-block;
+				float: right;
+				margin:0;
+			}
+		}	
+	}
+
+
+	.animate-repeat {
+
+		box-sizing:border-box;
+		line-height:30px;
+	  	list-style:none; 	
+	}
+
+	.animate-repeat.ng-move,
+	.animate-repeat.ng-enter,
+	.animate-repeat.ng-leave {
+	  	transition:all linear 0.5s;
+	}
+
+	.animate-repeat.ng-leave.ng-leave-active,
+	.animate-repeat.ng-move,
+	.animate-repeat.ng-enter {
+
+		max-height:0;
+	  	opacity:0;
+	}
+
+	.animate-repeat.ng-leave,
+	.animate-repeat.ng-move.ng-move-active,
+	.animate-repeat.ng-enter.ng-enter-active {
+		
+		max-height:30px;
+	  	opacity:1;  
+	}
+}
+
+

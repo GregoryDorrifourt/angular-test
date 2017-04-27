@@ -1,19 +1,71 @@
-<h2>Exercice 2</h2>
-<pre>Je souhaite afficher une liste de fichiers PDF, pouvoir la trier via un champ de 
-recherche et un menu latéral permettant de les trier par catégorie.
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12">
+			<h2>Exercice 2</h2>
+			<pre>Je souhaite afficher une liste de fichiers PDF, pouvoir la trier via un champ de recherche et un menu latéral permettant de les trier par catégorie.
 
-Les fichiers sont dans 'files/exercice2/'.
+			Les fichiers sont dans 'files/exercice2/'.
 
-Ils doivent être séparés en catégorie :
-	- Catégorie 'Cours': fichiers 1 à 5
-	- Catégorie 'Exercices': fichiers 6 à 15
-	- Catégorie 'Evaluations': fichiers 16 à 20
-	
-Objectif : Apprendre le ngRepeat et confirmer l'apprentissage du ngModel.
+			Ils doivent être séparés en catégorie :
+				- Catégorie 'Cours': fichiers 1 à 5
+				- Catégorie 'Exercices': fichiers 6 à 15
+				- Catégorie 'Evaluations': fichiers 16 à 20
+				
+			Objectif : Apprendre le ngRepeat et confirmer l'apprentissage du ngModel.
 
-Consigne : 
-	- Donner un nom fictif aux fichiers.
-	- Créer un objet JSON dans le controller pour gérer la liste des fichiers.
+			Consigne : 
+				- Donner un nom fictif aux fichiers.
+				- Créer un objet JSON dans le controller pour gérer la liste des fichiers.
 
-Le design est en expression libre.
-</pre>
+			Le design est en expression libre.
+			</pre>
+		</div>	
+	</div>
+</div>
+
+<div class="container wrapper-list" ng-controller="Exo2Ctrl">
+
+	<div class="row">
+		<div class="col-xs-12 col-sm-4 section-left">
+			<h2 class="title">Catégories</h2>
+			<ul class="categorie-list">
+				<li class="categorie" ng-click="setCategory('')">
+					 <span>Tout</span>
+				</li>
+
+				<li class="categorie" ng-repeat="cat in categories" ng-click="setCategory(cat.id)" ng-class="{'active': currentCategory == cat.id}">
+					<span ng-bind="cat.label"></span>
+				</li>
+			</ul>
+		</div>
+
+		<div class="col-xs-12 col-sm-8 section-right">
+			<h2 class="title">Recherche</h2>
+
+			<div class="form-group">
+                <div class="input-group">
+                    <input type="text" class="form-control left-rounded" name="search" ng-model="search" placeholder="recherche">
+
+                    <div class="input-group-btn">
+                        <button type="submit" class="btn btn-inverse right-rounded">Chercher</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="wrapper-files" ng-repeat="info in informations | filter:currentCategory | filter:search as results">
+				<div class="download-file">
+					<h3 class="title-file" ng-bind="info.title"></h3>
+
+					<div class="doc-file">
+						<a ng-href="{{info.file}}" target="_blank" ng-bind="info.name_file"></a>
+						<p class="info-categorie" ng-bind="info.categorie.label"></p>	
+					</div>
+				</div>
+            </div>
+
+            <div class="animate-repeat" ng-if="results.length === 0">
+		    	<strong>Aucun résultat ...</strong>
+		    </div>
+		</div>
+	</div>
+</div>
