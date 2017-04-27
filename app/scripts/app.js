@@ -31,12 +31,20 @@ angular
       .when('/about', {
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl',
-        controllerAs: 'about'
+        controllerAs: 'vm'
+      })
+      .when('/exo1', {
+        templateUrl: 'views/exo1-form.html',
+        controller: 'FormCtrl',
+        controllerAs: 'vm'
       })
       .when('/exo2', {
-        templateUrl: 'views/exo2.html',
+        templateUrl: 'views/exo2-file-list.html',
         controller: 'Exo2Ctrl',
         controllerAs: 'vm'
+      })
+      .when('/testjs', {
+        templateUrl: 'views/testjs.html'
       })
       .otherwise({
         redirectTo: '/'

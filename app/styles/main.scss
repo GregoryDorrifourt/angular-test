@@ -2,40 +2,39 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 // bower:scss
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 // endbower
+@import "about.scss";
 @import "form.scss";
 @import "file-list.scss";
 
-.browsehappy {
-    margin: 0.2em 0;
-    background: #ccc;
-    color: #000;
-    padding: 0.2em 0;
-}
 
 body {
     background-color: #ECECEC;
     padding: 0;
 }
 
-h2 {
-    font-weight: 200;
-    margin-bottom: 75px;
+h1, h2, h3 {
+    margin: 10px 0 40px 0;
+    text-align: left;
+    font-weight: 300px;
+}
+
+h1 {
+    font-size: 30px;
     text-align: center;
 }
 
+
 h3 {
-    color: #009dcc;
-    font-weight: 400;
-    margin-top: 40px;
-    margin-bottom: 30px;
-    padding-left: 50px;
     text-align: left;
 }
 
-small {
-    
+small {   
     color: #666666;
     font-weight: 400
+}
+
+.jumbotron {
+    background-color: #FFF;
 }
 
 // Button
@@ -91,19 +90,6 @@ small {
     padding-right: 15px;
 }
 
-/* Custom page header */
-.header {
-    border-bottom: 1px solid #e5e5e5;
-    margin-bottom: 10px;
-
-    /* Make the masthead heading the same height as the navigation */
-    h3 {
-        margin-top: 0;
-        margin-bottom: 0;
-        line-height: 40px;
-        padding-bottom: 19px;
-    }
-}
 
 /* Custom page footer */
 .footer {
@@ -114,15 +100,6 @@ small {
 .container-narrow > hr {
     margin: 30px 0;
 }
-
-/* Supporting marketing content */
-// .marketing {
-//   margin: 40px 0;
-
-//   p + h4 {
-//     margin-top: 28px;
-//   }
-// }
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {

@@ -1,5 +1,6 @@
 .wrapper-list {
-	border-top: 3px solid #F1F1F1;
+	background-color: #FFF;
+	border: 2px solid #ccc;
 	margin: 50px 0;
 
 	.title {
@@ -18,7 +19,7 @@
 
 	.section-left {
 
-		background-color: #F1F1F1;
+		background-color: #F5F5F5;
 		padding: 20px 25px;
 
 		@media (min-width: $screen-sm) {
@@ -95,6 +96,7 @@
 
 			font-size: 20px;
 			margin-top: 0;
+			padding-left: 0;
 		}
 
 		.doc-file {

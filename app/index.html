@@ -1,6 +1,6 @@
 <!doctype html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
     <title>Lolilol</title>
     <meta name="description" content="">
@@ -14,8 +14,9 @@
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/about.css">
     <!-- endbuild -->
-  </head>
-  <body ng-app="angularTestApp">
+</head>
+
+<body ng-app="angularTestApp">
     <!--[if lte IE 8]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -41,14 +42,16 @@
             <ul class="nav navbar-nav">
               <li class="active"><a href="#/">Home</a></li>
               <li><a ng-href="#/about">About</a></li>
-              <li><a ng-href="#/exo2">Exercice 2</a></li>
+              <li><a ng-href="#/exo1">Form</a></li>
+              <li><a ng-href="#/exo2">File list</a></li>
+              <li><a ng-href="#/testjs">Test JS</a></li>
             </ul>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="container" ng-controller="MainCtrl">
+    <div class="container">
       <div ng-view=""></div>
     </div>
 
@@ -69,20 +72,13 @@
     <!-- endbower -->
     <!-- endbuild -->
 
-<<<<<<< HEAD
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/controllers/about.js"></script>
-        <script src="scripts/controllers/exo2.js"></script>
-        <!-- endbuild -->
-=======
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>
     <script src="scripts/services/form-patterns.js"></script>
     <script src="scripts/controllers/main.js"></script>
     <script src="scripts/controllers/about.js"></script>
+    <script src="scripts/controllers/exo1-form.js"></script>
+    <script src="scripts/controllers/exo2-file-list.js"></script>
     <!-- endbuild -->
->>>>>>> feature/formulaire
 </body>
 </html>
