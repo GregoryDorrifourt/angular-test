@@ -32,6 +32,18 @@
 
 		.categorie {
 
+			&.active {
+
+				span {
+					
+					background-color: #006bb3;
+					display: block;
+			    	color: #fff;
+				    padding-right: 0;
+				    padding-left: 16px;
+				}
+			}
+
 			span {
 
 				color: #000;

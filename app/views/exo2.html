@@ -33,7 +33,7 @@
 					<span>Tout</span>
 				</li>
 
-				<li class="categorie" ng-class="{'active' : toggle}" ng-repeat="cat in categories" ng-click="setCategory(cat.id)">
+				<li class="categorie" ng-repeat="cat in categories" ng-click="setCategory(cat.id)" ng-class="{'active': currentCategory == cat.id}">
 					<span ng-bind="cat.label"></span>
 				</li>
 			</ul>
