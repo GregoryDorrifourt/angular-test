@@ -35,7 +35,7 @@ angular
       })
       .when('/exo1', {
         templateUrl: 'views/exo1-form.html',
-        controller: 'FormCtrl',
+        controller: 'Exo1Ctrl',
         controllerAs: 'vm'
       })
       .when('/exo2', {
@@ -44,7 +44,7 @@ angular
         controllerAs: 'vm'
       })
       .when('/testjs', {
-        templateUrl: 'views/testjs.html'
+        templateUrl: 'views/test-js.html'
       })
       .otherwise({
         redirectTo: '/'

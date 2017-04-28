@@ -13,7 +13,7 @@ var myApp = angular.module('angularTestApp');
 
 	
 // Creer controller principal
-myApp.controller('FormCtrl', function ($scope, formPatterns) {
+myApp.controller('Exo1Ctrl', function ($scope, formPatterns) {
 
   	// Function to submit the form after all validation has occurred 
   	$scope.submitForm = function(isValid) {

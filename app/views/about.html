@@ -3,64 +3,84 @@
 
 <div class="container about" ng-controller="AboutCtrl">
 
-	<h1 ng-init="title='Angular'">{{title}}</h1>
-	
-	<div class="wrapper">
-		<h2 class="title">Les Directives</h2>
-	
-		<h3>ngModel</h3>
-    	<input type="text" ng-model="task">
-		{{task}}
-
-
-		<h3>ngInit et ngRepeat</h3>
-		<div ng-init="users=['Marc', 'Jean', 'John']"></div>
-		{{users}}
-
-		<ul>
-			<li ng-repeat="user in users">{{user}}</li>
-		</ul>
+	<div class="row">
+		<div class="col-xs-12">
+			<h1 ng-init="title='Angular'">{{title}}</h1>
+		</div>
 	</div>
-	
-	<div class="wrapper">
-		<h2 class="title">Les filtres</h2>
 
-		<h4>Exemple 1</h4>
-		<ul>
-			<!-- exemple : uppercase est un filtre qui met la majuscule -->
-			<li ng-repeat="user in users">{{user | uppercase}}</li> 
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="wrapper">
+				<h2 class="title">Les Directives</h2>
+			
+				<h3>ngModel</h3>
+		    	<input type="text" ng-model="task">
+				{{task}}
 
-			<!-- filter : permet de filtrer plusieurs choses, dans l'exemple suivant, cela permet de filtrer tout les prénoms ayant " M " dedans dans le tableau. -->
-			{{users | filter: 'a'}}
-		</ul>
 
-		<h4>Exemple 2</h4>
-		<input type="text" ng-model="query">
-		<div ng-init="users=['Marc', 'Jean', 'John']"></div>
-		<ul>
-			<li ng-repeat="user in users | filter:query">{{user}}</li>
-		</ul>
-	</div>
-		
-	<div class="wrapper">
-		<h2 class="title">Controller & Scope</h2>
+				<h3>ngInit et ngRepeat</h3>
+				<div ng-init="users=['Marc', 'Jean', 'John']"></div>
+				{{users}}
 
-		<div>
-			<div ng-repeat="comment in comments">
-				<p>
-					<strong>{{comment.username}}</strong><br>
-					{{comment.content}}
-				</p>
+				<ul>
+					<li ng-repeat="user in users">{{user}}</li>
+				</ul>
 			</div>
 		</div>
 	</div>
 	
-	<div class="wrapper">
-		<h2 class="title">Exemple de ng Required</h2>
-		<div>
-			<p></p>
-			<input type="text" name="test" ng-model="user.test" ng-required="!user.test2">
-			<input type="text" name="test2" ng-model="user.test2" ng-required="!user.test">
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="wrapper">
+				<h2 class="title">Les filtres</h2>
+
+				<h4>Exemple 1</h4>
+				<ul>
+					<!-- exemple : uppercase est un filtre qui met la majuscule -->
+					<li ng-repeat="user in users">{{user | uppercase}}</li> 
+
+					<!-- filter : permet de filtrer plusieurs choses, dans l'exemple suivant, cela permet de filtrer tout les prénoms ayant " M " dedans dans le tableau. -->
+					{{users | filter: 'a'}}
+				</ul>
+
+				<h4>Exemple 2</h4>
+				<input type="text" ng-model="query">
+				<div ng-init="users=['Marc', 'Jean', 'John']"></div>
+				<ul>
+					<li ng-repeat="user in users | filter:query">{{user}}</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-xs-12">	
+			<div class="wrapper">
+				<h2 class="title">Controller & Scope</h2>
+
+				<div>
+					<div ng-repeat="comment in comments">
+						<p>
+							<strong>{{comment.username}}</strong><br>
+							{{comment.content}}
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="wrapper">
+				<h2 class="title">Exemple de ng Required</h2>
+				<div>
+					<p></p>
+					<input type="text" name="test" ng-model="user.test" ng-required="!user.test2">
+					<input type="text" name="test2" ng-model="user.test2" ng-required="!user.test">
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
