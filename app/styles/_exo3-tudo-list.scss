@@ -1,0 +1,76 @@
+.wrap-form {
+
+	background: #fff;
+ 	background: rgba(255, 255, 255, 0.9);
+ 	border: 1px solid #ccc;
+ 	border-top-left-radius: 2px;
+ 	border-top-right-radius: 2px;
+ 	box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.15);
+ 	margin-top: 50px;
+ 	position: relative;
+
+    #new-todo {
+    	
+    	background: rgba(0, 0, 0, 0.02);
+    	border: 0;
+		font-size: 24px;
+		line-height: 1.4em;
+		outline: none;
+		padding: 16px 16px 16px 60px;
+	    position: relative; 
+	    width: 100%;
+   		z-index: 2;
+	}
+
+	#todo-list {
+
+		margin: 0;
+		padding: 0;
+		list-style: none;
+
+		li {
+
+		    position: relative;
+		    font-size: 24px;
+		    border-bottom: 1px dotted #ccc;
+
+		    &:last-child {
+		    	border-bottom: none;
+		    }
+		}
+
+		.close {
+    		margin-right: 30px;
+		}
+	}
+
+	#mark-all {
+
+	    margin-top: 30px;
+	    margin-bottom: 30px;
+	}
+
+	input[type="checkbox"] {
+
+		margin-left: 20px;
+	    margin-right: 20px;
+	}
+
+	.btn {
+		height: auto;
+	}
+
+	.btn-info {
+
+		background-color: #5bc0de;
+		border-color: #46b8da;
+		color: #fff;
+
+		&:hover {
+
+    		background-color: #31b0d5;
+    		border-color: #269abc;
+    		color: #fff;
+		}
+	}
+}
