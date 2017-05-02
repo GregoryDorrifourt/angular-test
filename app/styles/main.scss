@@ -2,9 +2,11 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 // bower:scss
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 // endbower
-@import "about.scss";
-@import "form.scss";
-@import "file-list.scss";
+@import "about";
+@import "exo1-form";
+@import "exo2-file-list";
+@import "exo3-tudo-list";
+
 
 
 body {
@@ -38,6 +40,7 @@ small {
 }
 
 .wrapper {
+
     background-color: #FFF;
     padding:30px;
     margin-bottom: 40px;
@@ -45,7 +48,6 @@ small {
 
 // Button
 .btn {
-
     height: 45px;
 
     &.active {
@@ -82,16 +84,17 @@ small {
 
 // Margin
 .margin-b {
-    margin-bottom: 35px;
-  background-color: #FFF;
-  padding: 0;
 
+    margin-bottom: 35px;
+    background-color: #FFF;
+    padding: 0;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
 .marketing,
 .footer {
+
     padding-left: 15px;
     padding-right: 15px;
 }
@@ -99,6 +102,7 @@ small {
 
 /* Custom page footer */
 .footer {
+
     padding-top: 19px;
     color: #777;
 }
@@ -118,6 +122,7 @@ small {
   .header,
   .marketing,
   .footer {
+
     padding-left: 0;
     padding-right: 0;
   }
@@ -125,6 +130,7 @@ small {
   .header {
     margin-bottom: 30px;
   }
+
   /* Remove the bottom border on the jumbotron for visual effect */
   .jumbotron {
     border-bottom: 0;

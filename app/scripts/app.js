@@ -43,6 +43,11 @@ angular
         controller: 'Exo2Ctrl',
         controllerAs: 'vm'
       })
+      .when('/exo3', {
+        templateUrl: 'views/exo3-todo-list.html',
+        controller: 'Exo3Ctrl',
+        controllerAs: 'vm'
+      })
       .when('/testjs', {
         templateUrl: 'views/test-js.html'
       })

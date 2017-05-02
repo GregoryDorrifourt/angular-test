@@ -43,6 +43,11 @@ myApp.controller('MainCtrl', function ($scope) {
           "url" : "#/exo2"
         },
         {
+          "item" : "Todo list",
+          "id" : "todo_list",
+          "url" : "#/exo3"
+        },
+        {
           "item" : "Test JS",
           "id" : "test_js",
           "url" : "#/testjs"
